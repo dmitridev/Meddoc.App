@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Meddoc.App.Components.PatientNote"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Meddoc.App.Components"
+             mc:Ignorable="d" 
+             Background="White"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Text="Дата:" x:Name="NoteDate" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button Background="#1675E4" Margin="10,0" Click="Button_Click">
+                    <Image Source="/Components/Vector3.png"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button Background="#E82833" Margin="10,0" Click="Button_Click_1">
+                    <Image Source="/Components/delete.png" />
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" >
+            <TextBlock x:Name="NoteText" FontSize="20px" Margin="10,10,20,10" Background="#1675E4" Foreground="White"/>
+        </Grid>
+    </Grid>
+</UserControl>

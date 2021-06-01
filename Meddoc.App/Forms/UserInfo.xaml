@@ -1,0 +1,53 @@
+﻿<Page x:Class="Meddoc.App.Forms.UserInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Meddoc.App.Forms"
+      mc:Ignorable="d" 
+      d:DesignHeight="986" d:DesignWidth="1539"
+      Background="White"
+      Title="UserInfo">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="40,40,0,40">
+                <Image Source="" />
+            </Grid>
+            <Grid Grid.Column="1" Margin="40">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" >
+                    <Button BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Редактировать" Padding="40,10">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <TextBlock x:Name="Name" FontSize="46px" Text="Николаенко Николай Николаевич"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <StackPanel>
+                        <TextBlock x:Name="Post" Text="Должность:"/>
+                        <TextBlock x:Name="DateBirth" Text="Дата рождения:" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

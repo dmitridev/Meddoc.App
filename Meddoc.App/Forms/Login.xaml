@@ -1,0 +1,88 @@
+﻿<Page x:Class="Meddoc.App.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Meddoc.App"
+      mc:Ignorable="d" 
+      ShowsNavigationUI="False"
+      Background="White"
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Login">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Image Source="/Assets/Блок лого.png" />
+            <Grid.Background>
+                <SolidColorBrush Color="#1675E4"/>
+            </Grid.Background>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="209px"/>
+                    <ColumnDefinition Width="545px"/>
+                    <ColumnDefinition Width="206px"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="248"/>
+                            <RowDefinition Height="350"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock x:Name="label" TextBlock.FontWeight="Bold" Text="Вход в аккаунт" FontSize="42px" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <TextBox FontSize="24px" TextBlock.LineHeight="28px" Background="#e2e2e2" Text="ad" Margin="0,98,0,0" Height="96" VerticalAlignment="Top">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="11"/>
+                                    </Style>
+                                </TextBox.Resources>
+                                <TextBox.BitmapEffect>
+                                    <DropShadowBitmapEffect ShadowDepth=".1" Softness=".2">
+                                    </DropShadowBitmapEffect>
+                                </TextBox.BitmapEffect>
+                            </TextBox>
+                            <TextBox Background="#e2e2e2" Text="ab" Margin="0,220,0,0" VerticalAlignment="Top" Height="96">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="11"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <TextBlock PreviewMouseDown="TextBlock_PreviewMouseDown" VerticalAlignment="Bottom" TextDecorations="Underline"  HorizontalAlignment="Left" Text="регистрация" FontSize="24px" Foreground="#1675E4"/>
+                            
+
+                            <TextBlock TextDecorations="Underline" Text="Забыли пароль?" FontSize="24px" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Button VerticalAlignment="Top" Margin="0,80,0,0" Foreground="White" Background="#1675E4" Height="96" Content="Войти" FontSize="30px">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="11"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

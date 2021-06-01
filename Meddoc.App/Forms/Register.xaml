@@ -1,0 +1,78 @@
+﻿<Page x:Class="Meddoc.App.Register"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Meddoc.App"
+      ShowsNavigationUI="False"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Register"
+      Background="White"
+      >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" >
+            <Image Source="/Assets/register_logo.png" Width="290" Height="334" />
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.Background>
+                <SolidColorBrush Color="#1675E4"></SolidColorBrush>
+            </Grid.Background>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="209"/>
+                    <ColumnDefinition Width="545"/>
+                    <ColumnDefinition Width="206"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="241"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="241"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="Регистрация" VerticalAlignment="Center" FontSize="42px" Foreground="White"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <TextBox Height="96" VerticalAlignment="Top">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="11"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <TextBox Height="96" VerticalAlignment="Top" Margin="0,136,0,0">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="11"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+
+                        <TextBox Height="96" VerticalAlignment="Top" Margin="0,272,0,0">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="11"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <TextBox Height="96" Margin="0,408,0,0">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="11"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Button Height="96" Content="Зарегистрироваться" FontSize="30px" FontWeight="Bold" Background="White" Foreground="#1675E4"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

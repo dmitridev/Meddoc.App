@@ -1,0 +1,47 @@
+﻿<Window x:Class="Meddoc.App.NoteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Meddoc.App"
+        mc:Ignorable="d"
+        Title="Note" Height="793" Width="1122">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Margin="40">
+                <TextBox x:Name="NoteTitle" FontSize="40" Text="Новая заметка"/>
+                <TextBlock x:Name="NoteDate" Margin="0,10,0,0" FontSize="24" Text="Дата: "/>
+                <TextBox x:Name="NoteText" Margin="0,20,0,0" Height="480" FontSize="24px" Background="#e2e2e2"/>
+
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Button Content="Отмена" Click="ClickCancel"  Background="White" FontSize="24px" Foreground="#E82833" Margin="40,20" BorderBrush="#E82833" BorderThickness="2">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="11"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button Content="Добавить" Click="ClickAdd" Background="#1675E4" FontSize="24px" Foreground="White" Margin="40,20" BorderBrush="#1675E4" BorderThickness="2">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="11"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

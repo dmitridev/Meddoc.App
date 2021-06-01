@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Components\delete.png" />
+    <None Remove="Components\Vector3.png" />
+    <None Remove="Forms\Ellipse 1.png" />
+    <None Remove="Forms\Group1.png" />
+    <None Remove="Forms\Vector 4.png" />
+    <None Remove="Group.png" />
+    <None Remove="logo.png" />
+    <None Remove="Patients.png" />
+    <None Remove="register_logo.png" />
+    <None Remove="Vector.jpg" />
+    <None Remove="Vector.png" />
+    <None Remove="Блок лого.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.12.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Group.png" />
+    <Resource Include="Assets\logo.png" />
+    <Resource Include="Assets\Patients.png" />
+    <Resource Include="Assets\register_logo.png" />
+    <Resource Include="Assets\Vector.jpg" />
+    <Resource Include="Assets\Vector.png" />
+    <Resource Include="Assets\Блок лого.png" />
+    <Resource Include="Components\delete.png" />
+    <Resource Include="Components\Vector3.png" />
+    <Resource Include="Forms\Ellipse 1.png" />
+    <Resource Include="Forms\Group1.png" />
+    <Resource Include="Forms\Vector 4.png" />
+  </ItemGroup>
+
+</Project>
