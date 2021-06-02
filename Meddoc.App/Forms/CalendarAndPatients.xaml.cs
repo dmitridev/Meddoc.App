@@ -1,4 +1,7 @@
-﻿using Meddoc.App.Entity;
+﻿using Meddoc.App.Components;
+using Meddoc.App.Entity;
+using Meddoc.App.Helper;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,6 +28,8 @@ namespace Meddoc.App
         {
             InitializeComponent();
             this.main = main;
+            List<ReceptionEntity> receptions = Collection<ReceptionEntity>.List(new BsonDocument());
+            receptions.ForEach(r => this.Receptions.Children.Add(new Reception(main,r)));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

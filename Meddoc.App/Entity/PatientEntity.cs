@@ -26,6 +26,11 @@ namespace Meddoc.App.Entity
                 Diagnoz = Diagnoz
             };
         }
+
+        public override string ToString()
+        {
+            return this.Name + " " + this.LastName + " " + this.MiddleName;
+        }
         public override string GetCollectionName() => "patients";
     }
 }

@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Meddoc.App.Components.Reception"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Meddoc.App.Components"
+             mc:Ignorable="d"
+             Background="White"
+             d:DesignHeight="200" d:DesignWidth="801">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="5*" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <TextBlock x:Name="Time" Text="08:00" FontSize="24"/>
+                    <TextBlock MouseDown="Name_MouseDown" x:Name="Name" Text="Имя Фамилия" FontSize="24" TextDecorations="Underline" Foreground="#1675E4"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button Background="#1675E4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Image Source="/Components/Vector3.png" Margin="5" Width="40px" Height="40px"/>
+                </Button>
+                <Button Background="#E82833"  HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Image Source="/Components/delete.png" Margin="5" Width="40px" Height="40px"/>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock x:Name="Description" Text="fdsf" FontSize="24"/>
+        </Grid>
+    </Grid>
+</UserControl>

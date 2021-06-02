@@ -21,6 +21,18 @@ namespace Meddoc.App.Helper
             return mongoCollection.Find(document).FirstOrDefault();
         }
 
+        public static T Load(BsonDocument document)
+        {
+            MongoClient client = new MongoClient(Configuration.Connection);
+            var db = client.GetDatabase("meddoc");
+            string res = new T().GetCollectionName();
+            var mongoCollection = db.GetCollection<T>(res);
+            
+            return mongoCollection.Find(document).FirstOrDefault();
+        }
+
+
+
         public static void Save(T @object)
         {
             MongoClient client = new MongoClient(Configuration.Connection);

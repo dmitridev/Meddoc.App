@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Meddoc.App"
       mc:Ignorable="d" 
-      d:DesignHeight="986" d:DesignWidth="1539"
+      d:DesignHeight="980" d:DesignWidth="1539"
       Title="AddNewReception"
       Background="White">
     <Grid>
@@ -23,26 +23,17 @@
             <Grid Grid.Row="0">
                 <TextBlock Text="Новый прием" Margin="40,0,0,0" VerticalAlignment="Center" FontSize="40px" FontWeight="Bold"></TextBlock>
             </Grid>
-            <Grid Grid.Row="1">
+            <StackPanel Grid.Row="1">
                 <TextBlock Text="Выберите пациента*" VerticalAlignment="Top" FontSize="20px" FontWeight="Bold" Margin="40,0,0,0" />
-                <TextBox Background="#e2e2e2" Height="96" Margin="40,30,0,0" VerticalAlignment="Top">
-                    <TextBox.Resources>
+                <ComboBox x:Name="Patient" Background="#e2e2e2" Height="96" Margin="40,0,0,0" VerticalAlignment="Top">
+                    <ComboBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="11"/>
                         </Style>
-                    </TextBox.Resources>
-                </TextBox>
-                <TextBlock Text="Выберите дату" Margin="40,120,0,0" FontSize="20px" FontWeight="Bold" />
-                <TextBox Height="96" Background="#e2e2e2" VerticalAlignment="Top" Margin="40,154,0,0">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="11"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-
-                <TextBlock Text="Выберите время*" Margin="40,270,0,0" FontSize="20px" FontWeight="Bold" />
-                <TextBox Height="88" Background="#e2e2e2" VerticalAlignment="Top" Margin="40,303,0,0">
+                    </ComboBox.Resources>
+                </ComboBox>
+                <TextBlock Text="Выберите дату" Margin="40,0,0,0" FontSize="20px" FontWeight="Bold" />
+                <TextBox x:Name="Date" Height="96" Background="#e2e2e2" VerticalAlignment="Top" Margin="40,0,0,0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="11"/>
@@ -50,16 +41,26 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <TextBox Background="#e2e2e2" Margin="40,419,0,249">
+                <TextBlock Text="Выберите время*" Margin="40,0,0,0" FontSize="20px" FontWeight="Bold" />
+                <TextBox Height="88" x:Name="Time" Background="#e2e2e2" VerticalAlignment="Top" Margin="40,0,0,0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="11"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <Button Margin="40,627,0,144" Background="#1675E4" Foreground="White" Content="Добавить" FontSize="24px" />
-                <Button Margin="40,723,0,48" Background="#e2e2e2" Content="Назад" FontSize="24px" />
-            </Grid>
+
+                <TextBlock Text="Дополнительная информация" VerticalAlignment="Top" FontSize="20px" FontWeight="Bold" Margin="40,0,0,0" />
+                <TextBox x:Name="Description" Background="#e2e2e2" Margin="40,0,0,0">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="11"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <Button Margin="40,0,0,0" Click="Button_Click" Background="#1675E4" Foreground="White" Content="Добавить" FontSize="24px" />
+                <Button Margin="40,0,0,0" Background="#e2e2e2" Content="Назад" FontSize="24px" />
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

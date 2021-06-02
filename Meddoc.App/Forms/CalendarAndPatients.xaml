@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Meddoc.App"
+      xmlns:components="clr-namespace:Meddoc.App.Components"
       mc:Ignorable="d" 
       d:DesignHeight="986" d:DesignWidth="1539"
       Background="White"
@@ -22,7 +22,7 @@
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <TextBox Text="Расписание приемов" Margin="40" VerticalAlignment="Center" FontSize="40px"></TextBox>
+                        <TextBlock Text="Расписание приемов" Margin="40" VerticalAlignment="Center" FontSize="40px"></TextBlock>
                     </Grid>
                     <Grid Grid.Row="1">
                         <CalendarItem />
@@ -59,6 +59,13 @@
                     <Grid Grid.Row="0">
                         <TextBlock Text="Дата" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40,0" FontSize="24px"/>
                         <TextBlock Text="Сегодня 20 Пациентов" Margin="40,0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="24px"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <ScrollViewer>
+                            <StackPanel x:Name="Receptions">
+                             <!--<components:Reception Height="200" /> -->
+                            </StackPanel>
+                        </ScrollViewer>
                     </Grid>
                 </Grid>
             </Grid>
