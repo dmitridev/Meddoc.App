@@ -10,17 +10,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Meddoc.App.Entity;
 
-namespace Meddoc.App.Forms
+namespace Meddoc.App.Components
 {
     /// <summary>
-    /// Логика взаимодействия для PatientsTable.xaml
+    /// Логика взаимодействия для Memo.xaml
     /// </summary>
-    public partial class PatientsTable : Page
+    public partial class Memo : UserControl
     {
-        public PatientsTable()
+        public Memo()
         {
             InitializeComponent();
+        }
+
+        public Memo(Note note)
+        {
+            InitializeComponent();
+            this.NoteText.Text = note.Text;
+            this.Title.Text = note.Title;
+            this.Margin = new Thickness(0, 20, 0, 20);
         }
     }
 }

@@ -3,26 +3,24 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Meddoc.App.Dto" xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Background="White"
       Title="MyPatients">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Margin="20">
-            <TextBlock Text="Мои пациенты" FontSize="20"/>
+            <TextBlock Text="Мои пациенты" FontSize="40px" FontWeight="Bold" FontFamily="/Fonts/#Raleway"/>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Margin="10px">
-            <DataGrid x:Name="Table" AutoGenerateColumns="True" Margin="10">
-                <DataGrid.Columns>
-                        <DataGridTextColumn Header="Ф.И.О" Binding="{Binding Path=Name}" x:Name="Name"  Width="1*">
+                <DataGrid x:Name="Table" AutoGenerateColumns="True" Margin="10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn FontFamily="Fonts/#Raleway" FontSize="26px" Header="Ф.И.О" Binding="{Binding Path=Name}" x:Name="Name"  Width="1*">
                             <DataGridTextColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="Background" Value="White"/>
@@ -51,7 +49,7 @@
                             </DataGridTextColumn.HeaderStyle>
                         </DataGridTextColumn>
                     </DataGrid.Columns>
-            </DataGrid>
+                </DataGrid>
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="0"/>
@@ -60,7 +58,15 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <Button VerticalAlignment="Bottom" Background="#1675E4" Foreground="White" Content=" + Новый пациент" HorizontalAlignment="Right" Width="200px" Height="50px" Margin="5" Click="Add_Patient"></Button>
+            <Button VerticalAlignment="Bottom" 
+                    Background="#1675E4" 
+                    Foreground="White" 
+                    Content=" + Новый пациент" 
+                    HorizontalAlignment="Right" 
+                    Width="200px" 
+                    Height="50px" 
+                    Margin="5" 
+                    Click="Add_Patient"/>
         </Grid>
     </Grid>
 </Page>

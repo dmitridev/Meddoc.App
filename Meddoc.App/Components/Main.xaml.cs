@@ -1,4 +1,5 @@
-﻿using Meddoc.App.Forms;
+﻿using Meddoc.App.Entity;
+using Meddoc.App.Forms;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Meddoc.App.Helper;
+using Meddoc.App.Components;
 
 namespace Meddoc.App
 {
@@ -22,6 +25,8 @@ namespace Meddoc.App
         public Main()
         {
             InitializeComponent();
+            List<Note> notes = Collection<Note>.List(new MongoDB.Bson.BsonDocument());
+            notes.ForEach(note => this.Notes.Children.Add(new Memo(note)));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -32,8 +37,8 @@ namespace Meddoc.App
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.MainFrame.Content = new MyPatients();
-        }
+            this.MainFrame.Content = new MyPatients(this);
+        } 
 
         private void button_Click_2(object sender, RoutedEventArgs e)
         {

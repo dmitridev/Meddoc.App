@@ -21,10 +21,18 @@ namespace Meddoc.App.Forms
     /// </summary>
     public partial class MyPatients : Page
     {
+        Main main;
         public MyPatients()
         {
             InitializeComponent();
             LoadPatients();
+        }
+
+        public MyPatients(Main main)
+        {
+            InitializeComponent();
+            LoadPatients();
+            this.main = main;
         }
 
         private void LoadPatients()
@@ -32,13 +40,19 @@ namespace Meddoc.App.Forms
             var list = Collection<PatientEntity>.List(new BsonDocument());
             foreach(var item in list)
             {
-                this.Table.Items.Add(item.toWrapper());
+                this.Table.Items.Add(item);
             }
         }
 
         public void Add_Patient(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Patient());
+        }
+
+        private void DataGridCell_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
+            main.MainFrame.Content = new PatientsTable(patientEntity);
         }
     }
 }

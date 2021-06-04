@@ -8,7 +8,7 @@
       d:DesignHeight="980" d:DesignWidth="1539"
       Title="AddNewReception"
       Background="White">
-    <Grid>
+    <Grid Margin="0,-1,0,1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />

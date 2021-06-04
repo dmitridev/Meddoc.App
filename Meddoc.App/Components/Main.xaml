@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Meddoc.App"
+      xmlns:local="clr-namespace:Meddoc.App" xmlns:components="clr-namespace:Meddoc.App.Components"
       mc:Ignorable="d" 
       Background="White"
       d:DesignHeight="1080" d:DesignWidth="1920"
@@ -41,37 +41,44 @@
                     <RowDefinition Height="108"/>
                     <RowDefinition Height="108" />
                     <RowDefinition Height="108" />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="380"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Row="0" Grid.Column="0">
                     <Border Background="#1675E4">
-                        <Image Margin="0,0,326,0" Width="20px" Source="/Assets/Group.png" />
+                        <Image Margin="0,0,326,0" Width="28px" Source="/Assets/Group.png" />
                     </Border>
                     <Button BorderThickness="0" FontSize="20px" Foreground="White" Background="#1675E4" Margin="54,0,57,0" Click="Button_Click" >
-                        <TextBlock Text="Расписание приёмов" HorizontalAlignment="Center" Width="258" />
+                        <TextBlock FontFamily="Fonts/#Raleway" FontWeight="SemiBold"  Text="Расписание приёмов" HorizontalAlignment="Center" Width="258" />
                     </Button>
                     <Button BorderThickness="0" Background="#1675E4" FontSize="30px" Foreground="White" x:Name="button" Content="+" Margin="323,0,0,0" Click="button_Click_2"/>
                 </Grid>
                 <Grid Grid.Row="1" Grid.Column="0">
                     <Border Background="White">
-                        <Image Margin="0,0,326,0" Width="20px" Source="/Assets/Patients.png" />
+                        <Image Margin="0,0,326,0" Width="28px" Source="/Assets/Patients.png" />
                     </Border>
                     <Button Background="White" BorderThickness="0" FontSize="20px"  Click="Button_Click_1" Margin="59,0,63,0">
-                        <TextBlock Text="Мои пациенты" Width="263" />
+                        <TextBlock FontFamily="Fonts/#Raleway" FontWeight="SemiBold" Text="Мои пациенты" Width="263" />
                     </Button>
                     <Button BorderThickness="0" Content="+" FontSize="30px" Background="White" Margin="323,0,0,0" Click="Button_Click_4"/>
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="0">
-                    <Image Panel.ZIndex="12" Margin="0,0,326,0" Width="20px" Source="/Assets/Vector.png" />
+                    <Image Panel.ZIndex="12" Margin="0,0,326,0" Width="28px" Source="/Assets/Vector.png" />
                     <Button Background="White" BorderThickness="2" FontSize="20px">
-                        <TextBlock Text="Важное" Foreground="#1675E4" Width="259" />
+                        <TextBlock Text="Важное" FontFamily="Fonts/#Raleway" FontWeight="SemiBold" Foreground="#1675E4" Width="259" />
                         <Button.BorderBrush>
                             <SolidColorBrush Color="#1675E4"/>
                         </Button.BorderBrush>
                     </Button>
-                    <Button Margin="326,2,2,2" Content="V" BorderThickness="0" Background="White"/>
+                    <Image Width="28" Height="28" Margin="0,0,20,0" Source="/Components/UpArrow.png" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="0">
+                    <ScrollViewer >
+                        <StackPanel x:Name="Notes" Margin="0,20,0,0">
+                        </StackPanel>
+                    </ScrollViewer>
                 </Grid>
             </Grid>
         </Grid>
@@ -127,6 +134,7 @@
                 </Grid>
             </Grid>
             <Border BorderThickness="0.5" BorderBrush="#e2e2e2" />
+
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1">
             <Frame x:Name="MainFrame"/>

@@ -7,81 +7,96 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Components\CustomTextField.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Memo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\PatientNote.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Components\Reception.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\AddNewReception.xaml.cs">
+    <Compile Update="Components\AddNewReception.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\CalendarAndPatients.xaml.cs">
+    <Compile Update="Components\CalendarAndPatients.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\Login.xaml.cs">
+    <Compile Update="Components\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\Main.xaml.cs">
+    <Compile Update="Components\Main.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\MyPatients.xaml.cs">
+    <Compile Update="Components\MyPatients.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\NoteWindow.xaml.cs">
+    <Compile Update="Components\NoteWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\Patient.xaml.cs">
+    <Compile Update="Components\Patient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\PatientsTable.xaml.cs">
+    <Compile Update="Components\PatientsTable.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\Register.xaml.cs">
+    <Compile Update="Components\Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\UserInfo.xaml.cs">
+    <Compile Update="Components\UserInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Components\CustomTextField.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\dictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Memo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Components\PatientNote.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Reception.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\AddNewReception.xaml">
+    <Page Update="Components\AddNewReception.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\CalendarAndPatients.xaml">
+    <Page Update="Components\CalendarAndPatients.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\Login.xaml">
+    <Page Update="Components\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\Main.xaml">
+    <Page Update="Components\Main.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\MyPatients.xaml">
+    <Page Update="Components\MyPatients.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\PatientsTable.xaml">
+    <Page Update="Components\PatientsTable.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\UserInfo.xaml">
+    <Page Update="Components\UserInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\NoteWindow.xaml">
+    <Page Update="Components\NoteWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\Patient.xaml">
+    <Page Update="Components\Patient.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\Register.xaml">
+    <Page Update="Components\Register.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
