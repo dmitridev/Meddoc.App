@@ -22,5 +22,10 @@ namespace Meddoc.App
         {
             InitializeComponent();
         }
+
+        private void CustomTextField_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

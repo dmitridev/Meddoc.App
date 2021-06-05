@@ -3,13 +3,17 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Meddoc.App"
+      xmlns:components="clr-namespace:Meddoc.App.Components"
       ShowsNavigationUI="False"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="Register"
       Background="White"
       >
+
+    <Page.Resources>
+        <ResourceDictionary Source="/Resources/TextField.xaml"/>
+    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -30,46 +34,31 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="241"/>
+                        <RowDefinition Height=".8*"/>
+                        <RowDefinition Height="2*"/>
                         <RowDefinition/>
-                        <RowDefinition Height="241"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <TextBlock Text="Регистрация" VerticalAlignment="Center" FontSize="42px" Foreground="White"/>
+                        <TextBlock Text="Регистрация" FontFamily="Fonts/#Raleway" FontWeight="SemiBold" VerticalAlignment="Center" FontSize="42px" Foreground="White"/>
                     </Grid>
                     <Grid Grid.Row="1">
-                        <TextBox Height="96" VerticalAlignment="Top">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="11"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
-                        <TextBox Height="96" VerticalAlignment="Top" Margin="0,136,0,0">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="11"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
+                        <StackPanel>
+                            <components:CustomTextField Width="545" PlaceHolder="Придумайте логин..." Height="96" Margin="0,0,0,40"/>
+                            <components:CustomTextField Width="545" PlaceHolder="Ваша почта..."  Height="96" Margin="0,0,0,40" />
+                            <components:CustomTextField Width="545" PlaceHolder="Ваш пароль..." Height="96"  Margin="0,0,0,40" />
+                            <components:CustomTextField Width="545" PlaceHolder="Подтвердите пароль..." Height="96" Margin="0,0,0,10" />
+                            <TextBlock FontFamily="#Fonts/Raleway" FontWeight="Normal" TextDecorations="Underline" Foreground="White" Text="Уже есть аккаунт" FontSize="24" />
+                        </StackPanel>
 
-                        <TextBox Height="96" VerticalAlignment="Top" Margin="0,272,0,0">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="11"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
-                        <TextBox Height="96" Margin="0,408,0,0">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="11"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
                     </Grid>
                     <Grid Grid.Row="2">
-                        <Button Height="96" Content="Зарегистрироваться" FontSize="30px" FontWeight="Bold" Background="White" Foreground="#1675E4"/>
+                        <Button Height="96" Content="Зарегистрироваться" FontSize="30px" FontWeight="Bold" Background="White" Foreground="#1675E4">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="11"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </Grid>
                 </Grid>
             </Grid>
