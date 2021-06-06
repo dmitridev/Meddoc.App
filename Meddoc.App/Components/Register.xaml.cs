@@ -45,7 +45,7 @@ namespace Meddoc.App
 
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.NavigationService.Navigate(new Register());
+            this.NavigationService.Navigate(new Login());
         }
     }
 }
