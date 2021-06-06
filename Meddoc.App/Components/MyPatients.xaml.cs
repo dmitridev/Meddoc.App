@@ -60,7 +60,8 @@ namespace Meddoc.App.Forms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
+            main.MainFrame.Content = new PatientsTable(patientEntity);
         }
 
         private void DataGridTextColumn_MouseDown(object sender, MouseButtonEventArgs e)

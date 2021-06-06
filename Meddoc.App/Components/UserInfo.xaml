@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Margin="40,40,0,40">
-                <Image Source="" />
+                <Image Source="" x:Name="Logo" />
             </Grid>
             <Grid Grid.Column="1" Margin="40">
                 <Grid.RowDefinitions>
@@ -30,7 +30,7 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" >
-                    <Button BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Редактировать" Padding="40,10">
+                    <Button BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="Button_Click" Content="Редактировать" Padding="40,10">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="3"/>
@@ -39,12 +39,12 @@
                     </Button>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="Name" FontSize="46px" Text="Николаенко Николай Николаевич"/>
+                    <TextBlock x:Name="Name" FontSize="46px" Text="Не указано"/>
                 </Grid>
                 <Grid Grid.Row="2">
                     <StackPanel>
-                        <TextBlock x:Name="Post" Text="Должность:"/>
-                        <TextBlock x:Name="DateBirth" Text="Дата рождения:" />
+                        <TextBlock x:Name="Post" Text="Должность: Не указано"/>
+                        <TextBlock x:Name="DateBirth" Text="Дата рождения: Не указано" />
                     </StackPanel>
                 </Grid>
             </Grid>

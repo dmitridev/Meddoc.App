@@ -19,10 +19,18 @@ namespace Meddoc.App
     /// </summary>
     public partial class Register : Page
     {
+        Main main;
         public Register()
         {
             InitializeComponent();
         }
+
+        public Register(Main main)
+        {
+            InitializeComponent();
+            this.main = main;
+        }
+
 
         void CustomTextField_Loaded(object sender, RoutedEventArgs e)
         {
@@ -32,6 +40,12 @@ namespace Meddoc.App
         void Button_Register(object sender, RoutedEventArgs e)
         {
             Users.Register(this.Login.Textbox.Text, this.Email.Textbox.Text, this.Password.Textbox.Text, this.PasswordConfirm.Textbox.Text);
+            this.NavigationService.Navigate(new Login());
+        }
+
+        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.NavigationService.Navigate(new Register());
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Meddoc.App.Components;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,22 @@ namespace Meddoc.App.Forms
     /// </summary>
     public partial class UserInfo : Page
     {
+        Main main;
         public UserInfo()
         {
             InitializeComponent();
+            
+        }
+
+        public UserInfo(Main main)
+        {
+            InitializeComponent();
+            this.main = main;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            main.MainFrame.Content = new EditUser();
         }
     }
 }

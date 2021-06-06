@@ -46,7 +46,7 @@
                             <components:CustomTextField FontSize="26" x:Name="Email" PlaceHolder="Ваша почта..."  Height="96" Margin="0,0,0,40" />
                             <components:CustomTextField FontSize="26" x:Name="Password" PlaceHolder="Ваш пароль..." Height="96"  Margin="0,0,0,40" />
                             <components:CustomTextField FontSize="26" x:Name="PasswordConfirm" PlaceHolder="Подтвердите пароль..." Height="96" Margin="0,0,0,10" />
-                            <TextBlock FontFamily="#Fonts/Raleway" FontWeight="Normal" TextDecorations="Underline" Foreground="White" Text="Уже есть аккаунт" FontSize="24" />
+                            <TextBlock FontFamily="#Fonts/Raleway" PreviewMouseDown="TextBlock_PreviewMouseDown" FontWeight="Normal" TextDecorations="Underline" Foreground="White" Text="Уже есть аккаунт" FontSize="24" />
                         </StackPanel>
 
                     </Grid>

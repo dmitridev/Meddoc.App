@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Meddoc.App.Helper;
 using Meddoc.App.Components;
+using System.IO;
 
 namespace Meddoc.App
 {
@@ -27,7 +28,9 @@ namespace Meddoc.App
             InitializeComponent();
             List<Note> notes = Collection<Note>.List(new MongoDB.Bson.BsonDocument());
             notes.ForEach(note => this.Notes.Children.Add(new Memo(note)));
-            this.Login.Text = Configuration.currentUser.Login;
+            this.Login.Text = Configuration.currentUser?.Login;
+            if(Configuration.currentUser != null)
+                this.Logo.Source = LoadImage(Convert.FromBase64String(Configuration.currentUser.ImageBase64));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -58,7 +61,17 @@ namespace Meddoc.App
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.MainFrame.Content = new UserInfo();
+            this.MainFrame.Content = new UserInfo(this);
+        }
+
+        private BitmapSource LoadImage(byte[] bytes)
+        {
+            MemoryStream byteStream = new MemoryStream(bytes);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = byteStream;
+            image.EndInit();
+            return image;
         }
     }
 }

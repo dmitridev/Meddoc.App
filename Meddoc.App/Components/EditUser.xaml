@@ -1,0 +1,84 @@
+﻿<Page x:Class="Meddoc.App.Components.EditUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Meddoc.App.Components"
+      mc:Ignorable="d" 
+      Background="White"
+      d:DesignHeight="986" d:DesignWidth="1539"
+      Title="EditUser">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="Новый пациент" FontSize="40px" VerticalAlignment="Bottom" Margin="40,0,0,0"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="40,40,40,175" >
+                    <Border Background="#e2e2e2" >
+                        <Button Click="Button_Click">
+                            <Image x:Name="Logo" Width="100" Height="100"  Source="/Components/Photo.png" />
+                         </Button>
+                    </Border>
+                </Grid>
+                <Grid Grid.Column="1" Margin="40,25">
+                    <StackPanel>
+                        <TextBlock Text="Фамилия" FontWeight="Bold" FontSize="24px"/>
+                        <local:CustomTextField Height="65" PlaceHolderCornerRadius="4" FontSize="20" x:Name="LastName" PlaceHolder="Введите фамилию пациента"/>
+                        <TextBlock Text="Имя" FontWeight="Bold" FontSize="24px"/>
+                        <local:CustomTextField PlaceHolderCornerRadius="4" Height="65" x:Name="FirstName" FontSize="20" PlaceHolder="Введите имя пациента"/>
+                        <TextBlock Text="Отчество" FontWeight="Bold" FontSize="24px"/>
+                        <local:CustomTextField PlaceHolderCornerRadius="4" PlaceHolderPadding="30,15" x:Name="MiddleName" Height="65" FontSize="20" PlaceHolder="Введите отчество пациента"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="2" Margin="0,25">
+                    <StackPanel>
+                        <TextBlock Text="Год рождения" FontWeight="Bold" FontSize="24px"/>
+                        <local:CustomTextField PlaceHolderCornerRadius="4" FontSize="20" Height="65" PlaceHolder="ДД.ММ.ГГ"/>
+                        <TextBlock Text="Email" FontWeight="Bold" FontSize="24px"/>
+                        <local:CustomTextField x:Name="Email" PlaceHolderCornerRadius="4" FontSize="20" Height="65" PlaceHolder="Введите адрес электронной почты"/>
+                        <TextBlock Text="Должность" FontWeight="Bold" FontSize="24px"/>
+                        <local:CustomTextField x:Name="Work" PlaceHolderCornerRadius="4" FontSize="20" Height="65" PlaceHolder="Введите вашу должность"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <StackPanel>
+                        <Button Height="88px" Background="#1675E4" Foreground="White" Margin="40,0,0,0" FontSize="24px" Content="Сохранить" Click="Button_Click_1">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="11"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button Height="88px" Background="#e2e2e2" Foreground="#1675E4" FontSize="24px" Content="Назад" Margin="40,20,0,0">
+                            <Button.BorderBrush>
+                                <SolidColorBrush Color="#1675E4"/>
+                            </Button.BorderBrush>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

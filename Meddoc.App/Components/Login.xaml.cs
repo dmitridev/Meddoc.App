@@ -25,6 +25,7 @@ namespace Meddoc.App
             InitializeComponent();
         }
 
+
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             this.NavigationService.Navigate(new Register());
@@ -32,8 +33,9 @@ namespace Meddoc.App
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            User user = Users.Login(this.Login.Textbox.Text, this.Password.Textbox.Text);
+            User user = Users.Login(this.LoginField.Textbox.Text, this.PasswordField.Textbox.Text);
             Configuration.currentUser = user;
+            this.NavigationService.Navigate(new Main());
         }
     }
 }

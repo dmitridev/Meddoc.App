@@ -12,16 +12,15 @@ namespace Meddoc.App.Helper
     {
         public static User Login(string login, string password)
         {
-            string encodedPassword = Encryption.HashPassword(password);
             User user = null;
 
             try
             {
                 user = Collection<User>.Load(new BsonDocument {
-                {"login",login},
+                {"Login",login},
                 });
             }
-            catch(DatabaseException e)
+            catch (DatabaseException e)
             {
                 _ = e.Message;
             }
@@ -30,7 +29,12 @@ namespace Meddoc.App.Helper
                 _ = e.Message;
             }
 
-            bool verified = Encryption.Verify(encodedPassword, user.Password);
+            if(user == null)
+            {
+                throw AuthenticationException.WrongUser();
+            }
+
+            bool verified = Encryption.Verify(password, user.Password);
 
             if (!verified)
                 throw AuthenticationException.WrongUser();
@@ -45,6 +49,7 @@ namespace Meddoc.App.Helper
 
             User user = new User
             {
+                Id = ObjectId.GenerateNewId(),
                 Login = login,
                 Email = email,
                 Password = Encryption.HashPassword(password),

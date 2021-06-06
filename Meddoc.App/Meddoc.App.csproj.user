@@ -10,6 +10,9 @@
     <Compile Update="Components\CustomTextField.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\EditUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\Memo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\dictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\EditUser.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\Memo.xaml">
