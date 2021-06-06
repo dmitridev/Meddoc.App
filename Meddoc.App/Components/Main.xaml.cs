@@ -27,18 +27,19 @@ namespace Meddoc.App
             InitializeComponent();
             List<Note> notes = Collection<Note>.List(new MongoDB.Bson.BsonDocument());
             notes.ForEach(note => this.Notes.Children.Add(new Memo(note)));
+            this.Login.Text = Configuration.currentUser.Login;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.MainFrame.Content = new CalendarAndPatients(this);
-            
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.MainFrame.Content = new MyPatients(this);
-        } 
+        }
 
         private void button_Click_2(object sender, RoutedEventArgs e)
         {

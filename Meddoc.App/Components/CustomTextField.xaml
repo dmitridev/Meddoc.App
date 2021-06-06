@@ -3,40 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             Width="500" Height="100"
-             mc:Ignorable="d">
-    <UserControl.Resources>
-        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate >
-                        <Border BorderBrush="{TemplateBinding Background}" BorderThickness="10" CornerRadius="11">
-                            <Grid>
-                                <TextBox Padding="30,15" BorderThickness="0" Background="{TemplateBinding Background}" x:Name="Textbox"></TextBox>
-
-                                <TextBlock Padding="30,15" x:Name="Placeholder" IsHitTestVisible="False" Text="{TemplateBinding Tag}">
-                                    <TextBlock.Foreground>
-                                        <SolidColorBrush Color="#1D1D1D" Opacity="0.25" />
-                                    </TextBlock.Foreground>
-                                    <TextBlock.Style>
-                                        <Style TargetType="{x:Type TextBlock}">
-                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Text, ElementName=Textbox}" Value="">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
-    <Grid>
-        <TextBox Tag="{Binding PlaceHolder}" Background="#E2E2E2" FontSize="24" Style="{StaticResource placeHolder}"/>
-    </Grid>
+             mc:Ignorable="d"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             >
+    <Border BorderBrush="#E2E2E2" BorderThickness="10" CornerRadius="{Binding PlaceHolderCornerRadius}">
+        <Grid>
+            <TextBox Padding="{Binding PlaceHolderPadding}"
+                     BorderThickness="0" 
+                     Background="#E2E2E2" 
+                     x:Name="Textbox"/>
+            <TextBlock Padding="{Binding PlaceHolderPadding}" 
+                       TextWrapping="Wrap" 
+                       x:Name="Placeholder" 
+                       IsHitTestVisible="False"
+                       Text="{Binding PlaceHolder}">
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="#1D1D1D" Opacity="0.25" />
+                </TextBlock.Foreground>
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=Textbox}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+    </Border>
 </UserControl>

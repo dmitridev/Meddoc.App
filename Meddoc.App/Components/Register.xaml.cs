@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Meddoc.App.Helper;
 
 namespace Meddoc.App
 {
@@ -23,9 +24,14 @@ namespace Meddoc.App
             InitializeComponent();
         }
 
-        private void CustomTextField_Loaded(object sender, RoutedEventArgs e)
+        void CustomTextField_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        void Button_Register(object sender, RoutedEventArgs e)
+        {
+            Users.Register(this.Login.Textbox.Text, this.Email.Textbox.Text, this.Password.Textbox.Text, this.PasswordConfirm.Textbox.Text);
         }
     }
 }

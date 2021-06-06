@@ -24,7 +24,7 @@ namespace Meddoc.App
         public AddNewReception()
         {
             InitializeComponent();
-            var list = Collection<PatientEntity>.List(new MongoDB.Bson.BsonDocument());
+            var list = Collection<PatientEntity>.List(new BsonDocument());
             this.Patient.Items.Add(list[0]);
         }
 
@@ -34,9 +34,9 @@ namespace Meddoc.App
             {
                 Id = ObjectId.GenerateNewId(),
                 PatientEntity = ((PatientEntity)this.Patient.SelectedItem).Id,
-                Date = DateTime.Parse(this.Date.Text),
-                Time = DateTime.Parse(this.Time.Text),
-                Info = this.Description.Text
+                Date = DateTime.Parse(this.Date.Textbox.Text),
+                Time = DateTime.Parse(this.Time.Textbox.Text),
+                Info = this.Description.Textbox.Text
             };
             Collection<ReceptionEntity>.Save(patientEntity);
         }

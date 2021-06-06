@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Meddoc.App"
+      xmlns:local="clr-namespace:Meddoc.App" xmlns:components="clr-namespace:Meddoc.App.Components"
       mc:Ignorable="d" 
       d:DesignHeight="980" d:DesignWidth="1539"
       Title="AddNewReception"
@@ -19,47 +19,61 @@
                 <RowDefinition Height="160"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-
             <Grid Grid.Row="0">
                 <TextBlock Text="Новый прием" Margin="40,0,0,0" VerticalAlignment="Center" FontSize="40px" FontWeight="Bold"></TextBlock>
             </Grid>
             <StackPanel Grid.Row="1">
                 <TextBlock Text="Выберите пациента*" VerticalAlignment="Top" FontSize="20px" FontWeight="Bold" Margin="40,0,0,0" />
-                <ComboBox x:Name="Patient" Background="#e2e2e2" Height="96" Margin="40,0,0,0" VerticalAlignment="Top">
+                <ComboBox x:Name="Patient" Background="#e2e2e2" Height="96" Margin="40,0,0,0">
                     <ComboBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="11"/>
+                            <Setter Property="BorderThickness" Value="0"/>
                         </Style>
                     </ComboBox.Resources>
                 </ComboBox>
                 <TextBlock Text="Выберите дату" Margin="40,0,0,0" FontSize="20px" FontWeight="Bold" />
-                <TextBox x:Name="Date" Height="96" Background="#e2e2e2" VerticalAlignment="Top" Margin="40,0,0,0">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="11"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                <components:CustomTextField x:Name="Date" Margin="40,0,0,0" PlaceHolderCornerRadius="4" FontSize="20" PlaceHolder="ДД.ММ.ГГ" Height="65"/>
 
                 <TextBlock Text="Выберите время*" Margin="40,0,0,0" FontSize="20px" FontWeight="Bold" />
-                <TextBox Height="88" x:Name="Time" Background="#e2e2e2" VerticalAlignment="Top" Margin="40,0,0,0">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="11"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                <components:CustomTextField  x:Name="Time" PlaceHolderCornerRadius="4" Margin="40,0,0,0" FontSize="20px" PlaceHolder="00:00" Height="65"/>
 
                 <TextBlock Text="Дополнительная информация" VerticalAlignment="Top" FontSize="20px" FontWeight="Bold" Margin="40,0,0,0" />
-                <TextBox x:Name="Description" Background="#e2e2e2" Margin="40,0,0,0">
-                    <TextBox.Resources>
+                <components:CustomTextField x:Name="Description" 
+                                            Margin="40,0,0,0" 
+                                            PlaceHolderCornerRadius="4" 
+                                            FontSize="20" 
+                                            PlaceHolder="Сюда вы можете занести какие-то дополнительные данные" />
+                <Button Margin="40,56,0,20" 
+                        Click="Button_Click" 
+                        Background="#1675E4" 
+                        Foreground="White" 
+                        Content="Добавить" 
+                        FontSize="24px" 
+                        BorderThickness="0"
+                        Height="88"
+                        >
+                    <Button.Resources>
                         <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="11"/>
+                            <Setter Property="CornerRadius" Value="8"/>
                         </Style>
-                    </TextBox.Resources>
-                </TextBox>
-                <Button Margin="40,0,0,0" Click="Button_Click" Background="#1675E4" Foreground="White" Content="Добавить" FontSize="24px" />
-                <Button Margin="40,0,0,0" Background="#e2e2e2" Content="Назад" FontSize="24px" />
+                    </Button.Resources>
+                </Button>
+
+                <Button Margin="40,0,0,0" 
+                        Background="#e2e2e2" 
+                        Content="Назад" 
+                        FontSize="24px" 
+                        BorderThickness="2"
+                        BorderBrush="#1675E4"
+                        Height="88"
+                        >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
         </Grid>
     </Grid>

@@ -49,11 +49,20 @@ namespace Meddoc.App.Helper
 
         public static List<T> List(BsonDocument template)
         {
-            var client = new MongoClient(Configuration.Connection);
-            var db = client.GetDatabase("meddoc");
-            var res = new T().GetCollectionName();
-            var mongoCollection = db.GetCollection<T>(res);
-            return mongoCollection.Find(template).ToList<T>();
+            try
+            {
+                var client = new MongoClient(Configuration.Connection);
+                var db = client.GetDatabase("meddoc");
+                var res = new T().GetCollectionName();
+                var mongoCollection = db.GetCollection<T>(res);
+                return mongoCollection.Find(template).ToList<T>();
+            }
+            catch
+            {
+
+            }
+
+            return new List<T>();
         }
     }
 }

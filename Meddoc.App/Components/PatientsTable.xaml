@@ -20,11 +20,11 @@
         <Grid Grid.Column="0">
             <Grid.ColumnDefinitions >
                 <ColumnDefinition  Width="3*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2.5*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <StackPanel Margin="40px">
-                    <TextBlock x:Name="PatientName" FontSize="40px" Text="Должевский Иван николаевич"/>
+                    <TextBlock x:Name="PatientName" FontFamily="Fonts/#Raleway" FontSize="40px" Text="Должевский Иван николаевич"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
@@ -33,10 +33,10 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <Button Margin="40px" Content="Редактировать" Background="#1675E4"/>
+                    <Button Margin="40px" Width="278" FontFamily="Fonts/#Raleway" Foreground="White" FontSize="24px" Content="Редактировать" Background="#1675E4"/>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <Button Margin="40px" Content="Удалить" Background="#E82833"/>
+                    <Button Margin="40px" Width="278" FontFamily="Fonts/#Raleway" Foreground="White" FontSize="24px" Content="Удалить" Background="#E82833"/>
                 </Grid>
             </Grid>
         </Grid>
@@ -55,9 +55,9 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                 <StackPanel>
-                    <TextBlock x:Name="Diagnoz" FontSize="20" Text="Диагноз:"/>
-                    <TextBlock x:Name="DateBirth" FontSize="20" Text="Дата рождения:" />
-                    <TextBlock FontSize="20" Text="История пациента" />
+                    <TextBlock x:Name="Diagnoz" FontFamily="Fonts/#Raleway" FontSize="20" Text="Диагноз:"/>
+                        <TextBlock x:Name="DateBirth" FontFamily="Fonts/#Raleway" FontSize="20" Text="Дата рождения:" />
+                        <TextBlock FontSize="20" FontFamily="Fonts/#Raleway" Text="История пациента" />
                 </StackPanel>
                 </Grid>
                 <Grid Grid.Row="1" Margin="40px">

@@ -33,15 +33,18 @@ namespace Meddoc.App.Forms
             InitializeComponent();
             LoadPatients();
             this.main = main;
+            DataContext = this;
         }
 
         private void LoadPatients()
         {
+            
             var list = Collection<PatientEntity>.List(new BsonDocument());
             foreach(var item in list)
             {
                 this.Table.Items.Add(item);
             }
+            
         }
 
         public void Add_Patient(object sender, RoutedEventArgs e)
@@ -50,6 +53,17 @@ namespace Meddoc.App.Forms
         }
 
         private void DataGridCell_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
+            main.MainFrame.Content = new PatientsTable(patientEntity);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DataGridTextColumn_MouseDown(object sender, MouseButtonEventArgs e)
         {
             PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
             main.MainFrame.Content = new PatientsTable(patientEntity);

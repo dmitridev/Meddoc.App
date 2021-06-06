@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Meddoc.App.Helper;
+using Meddoc.App.Entity;
 
 namespace Meddoc.App
 {
@@ -26,6 +28,12 @@ namespace Meddoc.App
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             this.NavigationService.Navigate(new Register());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            User user = Users.Login(this.Login.Textbox.Text, this.Password.Textbox.Text);
+            Configuration.currentUser = user;
         }
     }
 }

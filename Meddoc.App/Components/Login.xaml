@@ -48,14 +48,14 @@
                         </Grid>
                         <Grid Grid.Row="1">
                             <StackPanel>
-                                <components:CustomTextField Width="545" PlaceHolder="Ваш логин..." Margin="0,40,0,40"/>
-                                <components:CustomTextField Width="545" PlaceHolder="Ваш пароль..."/>
+                                <components:CustomTextField x:Name="Login" FontSize="26px" PlaceHolderPadding="30,15" Height="96" PlaceHolder="Ваш логин..." Margin="0,40,0,40"/>
+                                <components:CustomTextField x:Name="Password" FontSize="26px" PlaceHolderPadding="0,0"  Height="96" PlaceHolder="Ваш пароль..."/>
                             </StackPanel>
                             <TextBlock PreviewMouseDown="TextBlock_PreviewMouseDown" VerticalAlignment="Bottom" TextDecorations="Underline"  HorizontalAlignment="Left" Text="регистрация" FontSize="24px" Foreground="#E2E2E2" Margin="34,0,0,21"/>
                             <TextBlock TextDecorations="Underline" Text="Забыли пароль?" FontSize="24px" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#1675E4" Margin="0,0,27,18"/>
                         </Grid>
                         <Grid Grid.Row="2">
-                            <Button VerticalAlignment="Top" Margin="2,-3,-2,0" Foreground="White" Background="#1675E4" Height="96" Content="Войти" FontSize="30px">
+                            <Button VerticalAlignment="Top" Click="Button_Click" Margin="2,-3,-2,0" Foreground="White" Background="#1675E4" Height="96" Content="Войти" FontSize="30px">
                                 <Button.Resources>
                                     <Style TargetType="{x:Type Border}">
                                         <Setter Property="CornerRadius" Value="11"/>

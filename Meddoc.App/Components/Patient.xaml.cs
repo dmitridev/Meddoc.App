@@ -31,11 +31,11 @@ namespace Meddoc.App
             PatientEntity entity = new PatientEntity
             {
                 Id = ObjectId.GenerateNewId(),
-                Name = this.FirstName.Text,
-                MiddleName = this.MiddleName.Text,
-                LastName = this.LastName.Text,
-                DateBirth = DateTime.Parse(this.DateBirth.Text),
-                History = this.PatientHistory.Text
+                //Name = this.FirstName.Text,
+                //MiddleName = this.MiddleName.Text,
+                //LastName = this.LastName.Text,
+                //DateBirth = DateTime.Parse(this.DateBirth.Text),
+                //History = this.PatientHistory.Text
             };
             Collection<PatientEntity>.Save(entity);
         }
