@@ -64,5 +64,23 @@ namespace Meddoc.App.Helper
 
             return new List<T>();
         }
+
+        public static List<T> List(BsonDocument[] array)
+        {
+            try
+            {
+                var client = new MongoClient(Configuration.Connection);
+                var db = client.GetDatabase("meddoc");
+                var res = new T().GetCollectionName();
+                var mongoCollection = db.GetCollection<T>(res).Aggregate<T>(array);
+                return mongoCollection.ToList<T>();
+            }
+            catch
+            {
+
+            }
+
+            return new List<T>();
+        }
     }
 }
