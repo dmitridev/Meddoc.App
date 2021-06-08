@@ -14,6 +14,8 @@
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontFamily" Value="Raleway Thin"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
         </Style>
         <Style x:Key="ElementStyle" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -61,6 +63,9 @@
                           >
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="2*" 
+                                                FontFamily="Raleway Black"
+                                                FontWeight="SemiBold"
+                                                Foreground="#1D1D1D"
                                             Header="Ф.И.О" 
                                             Binding="{Binding Name}" 
                                             HeaderStyle="{StaticResource HeaderStyle}" 
@@ -70,8 +75,11 @@
 
                             </DataGridTextColumn>
                             <DataGridTextColumn 
-                            Header="Диагноз" 
+                            Header="Диагноз"
+                            FontFamily="Raleway"
+                            FontWeight="SemiBold"  
                             Width="1*" 
+                                 Foreground="#1D1D1D"
                             Binding="{Binding Diagnoz}" 
                             HeaderStyle="{StaticResource HeaderStyle}" 
                             CellStyle="{StaticResource CellStyle}"
@@ -79,6 +87,9 @@
                             />
                             <DataGridTextColumn Header="Дата рождения" 
                                             Width="1*" 
+                                                Foreground="#1D1D1D"
+                                                FontFamily="Raleway"
+                                             FontWeight="Normal"
                                             Binding="{Binding DateBirth}" 
                                             HeaderStyle="{StaticResource HeaderStyle}"
                                             CellStyle="{StaticResource CellStyle}"

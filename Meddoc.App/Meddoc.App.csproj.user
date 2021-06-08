@@ -105,8 +105,5 @@
     <Page Update="Components\Register.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Resources\TextField.xaml">
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
 </Project>
