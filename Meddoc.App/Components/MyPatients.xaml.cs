@@ -55,19 +55,19 @@ namespace Meddoc.App.Forms
         private void DataGridCell_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
-            main.MainFrame.Content = new PatientsTable(patientEntity);
+            main.MainFrame.Content = new PatientsTable(main,patientEntity);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
-            main.MainFrame.Content = new PatientsTable(patientEntity);
+            main.MainFrame.Content = new PatientsTable(main,patientEntity);
         }
 
         private void DataGridTextColumn_MouseDown(object sender, MouseButtonEventArgs e)
         {
             PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
-            main.MainFrame.Content = new PatientsTable(patientEntity);
+            main.MainFrame.Content = new PatientsTable(main,patientEntity);
         }
     }
 }

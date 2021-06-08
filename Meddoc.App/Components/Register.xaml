@@ -10,9 +10,6 @@
       Background="White"
       >
 
-    <Page.Resources>
-        <ResourceDictionary Source="/Resources/TextField.xaml"/>
-    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -38,20 +35,20 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <TextBlock Text="Регистрация" FontFamily="Fonts/#Raleway" FontWeight="SemiBold" VerticalAlignment="Center" FontSize="42px" Foreground="White"/>
+                        <TextBlock Text="Регистрация" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" VerticalAlignment="Center" FontSize="42px" Foreground="White"/>
                     </Grid>
                     <Grid Grid.Row="1">
                         <StackPanel>
-                            <components:CustomTextField FontSize="26" x:Name="Login" PlaceHolder="Придумайте логин..." Height="96" Margin="0,0,0,40"/>
-                            <components:CustomTextField FontSize="26" x:Name="Email" PlaceHolder="Ваша почта..."  Height="96" Margin="0,0,0,40" />
-                            <components:CustomTextField FontSize="26" x:Name="Password" PlaceHolder="Ваш пароль..." Height="96"  Margin="0,0,0,40" />
-                            <components:CustomTextField FontSize="26" x:Name="PasswordConfirm" PlaceHolder="Подтвердите пароль..." Height="96" Margin="0,0,0,10" />
-                            <TextBlock FontFamily="#Fonts/Raleway" PreviewMouseDown="TextBlock_PreviewMouseDown" FontWeight="Normal" TextDecorations="Underline" Foreground="White" Text="Уже есть аккаунт" FontSize="24" />
+                            <components:CustomTextField FontSize="26" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" x:Name="Login" PlaceHolder="Придумайте логин..." Height="96" Margin="0,0,0,40"/>
+                            <components:CustomTextField FontSize="26" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" x:Name="Email" PlaceHolder="Ваша почта..."  Height="96" Margin="0,0,0,40" />
+                            <components:CustomTextField FontSize="26" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" x:Name="Password" PlaceHolder="Ваш пароль..." Height="96"  Margin="0,0,0,40" />
+                            <components:CustomTextField FontSize="26" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" x:Name="PasswordConfirm" PlaceHolder="Подтвердите пароль..." Height="96" Margin="0,0,0,10" />
+                            <TextBlock FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" PreviewMouseDown="TextBlock_PreviewMouseDown" TextDecorations="Underline" Foreground="White" Text="Уже есть аккаунт" FontSize="24" />
                         </StackPanel>
 
                     </Grid>
                     <Grid Grid.Row="2">
-                        <Button Height="96" Content="Зарегистрироваться" Click="Button_Register" FontSize="30px" FontWeight="Bold" Background="White" Foreground="#1675E4">
+                        <Button Height="96" Content="Зарегистрироваться" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Click="Button_Register" FontSize="30px" FontWeight="Bold" Background="White" Foreground="#1675E4">
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="11"/>

@@ -64,6 +64,7 @@ namespace Meddoc.App
             {
                 this.Receptions.Children.Add(new Reception(main, item));
             }
+            this.PatientsCount.Text = "Сегодня " + collection.Count + " пациент(а)(ов)";
         }
     }
 }

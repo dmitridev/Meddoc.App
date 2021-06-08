@@ -19,13 +19,14 @@ namespace Meddoc.App.Forms
     /// </summary>
     public partial class PatientsTable : Page
     {
+        Main main;
         PatientEntity entity;
         public PatientsTable()
         {
             InitializeComponent();
         }
 
-        public PatientsTable(PatientEntity patientEntity)
+        public PatientsTable(Main main,PatientEntity patientEntity)
         {
             InitializeComponent();
             this.entity = patientEntity;
@@ -33,6 +34,11 @@ namespace Meddoc.App.Forms
             this.Diagnoz.Text = "Диагноз: " + this.entity.Diagnoz;
             this.DateBirth.Text = "Дата рождения:" + this.entity.DateBirth.ToString();
             this.PatientHistory.Text = this.entity.History;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            main.MainFrame.Content = new Patient();
         }
     }
 }

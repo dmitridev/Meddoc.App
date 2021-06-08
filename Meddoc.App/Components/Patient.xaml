@@ -46,9 +46,10 @@
                 <Grid Grid.Column="2" Margin="0,25">
                     <StackPanel>
                         <TextBlock Text="Год рождения" FontWeight="Bold" FontSize="24px"/>
-                        <components:CustomTextField PlaceHolderCornerRadius="4" FontSize="20" Height="65" PlaceHolder="ДД.ММ.ГГ"/>
+                        <components:CustomTextField x:Name="DateBirth" PlaceHolderCornerRadius="4" FontSize="20" Height="65" PlaceHolder="ДД.ММ.ГГ"/>
                         <TextBlock Text="История пациента" FontWeight="Bold" FontSize="24px"/>
                         <components:CustomTextField 
+                            x:Name="History"
                             PlaceHolderCornerRadius="4"
                             FontSize="20"
                             Height="160" 

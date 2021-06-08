@@ -34,6 +34,7 @@ namespace Meddoc.App
             InitializeComponent();
             this.entity = entity;
             this.MainText.Text = "Редактировать приём";
+            this.MainButton.Content = "Сохранить";
             this.Patient.Items.Add(this.entity.PatientEntity);
             this.Patient.SelectedItem = this.entity.PatientEntity;
             this.Date.Textbox.Text = this.entity.Date.ToString();
@@ -43,15 +44,25 @@ namespace Meddoc.App
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ReceptionEntity patientEntity = new ReceptionEntity
+            ReceptionEntity receptionEntity;
+            if (entity == null)
             {
-                Id = ObjectId.GenerateNewId(),
-                PatientEntity = ((PatientEntity)this.Patient.SelectedItem).Id,
-                Date = DateTime.Parse(this.Date.Textbox.Text),
-                Time = DateTime.Parse(this.Time.Textbox.Text),
-                Info = this.Description.Textbox.Text
-            };
-            Collection<ReceptionEntity>.Save(patientEntity);
+                receptionEntity = new ReceptionEntity
+                {
+                    Id = ObjectId.GenerateNewId(),
+                    PatientEntity = ((PatientEntity)this.Patient.SelectedItem).Id,
+                    Date = DateTime.Parse(this.Date.Textbox.Text),
+                    Time = DateTime.Parse(this.Time.Textbox.Text),
+                    Info = this.Description.Textbox.Text
+                };
+            }
+            else
+            {
+                receptionEntity = entity;
+            }
+
+            Collection<ReceptionEntity>.Save(receptionEntity);
+            
         }
     }
 }

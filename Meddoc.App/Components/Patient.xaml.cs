@@ -21,9 +21,18 @@ namespace Meddoc.App
     /// </summary>
     public partial class Patient : Page
     {
+        Main main;
+        PatientEntity entity;
         public Patient()
         {
             InitializeComponent();
+        }
+
+        public Patient(Main main,PatientEntity entity)
+        {
+            InitializeComponent();
+            this.main = main;
+            this.entity = entity;
         }
 
         public void Button_Add(object sender, RoutedEventArgs e)
@@ -31,11 +40,11 @@ namespace Meddoc.App
             PatientEntity entity = new PatientEntity
             {
                 Id = ObjectId.GenerateNewId(),
-                //Name = this.FirstName.Text,
-                //MiddleName = this.MiddleName.Text,
-                //LastName = this.LastName.Text,
-                //DateBirth = DateTime.Parse(this.DateBirth.Text),
-                //History = this.PatientHistory.Text
+                Name = this.FirstName.Textbox.Text,
+                MiddleName = this.MiddleName.Textbox.Text,
+                LastName = this.LastName.Textbox.Text,
+                DateBirth = DateTime.Parse(this.DateBirth.Textbox.Text),
+                History = this.History.Textbox.Text
             };
             Collection<PatientEntity>.Save(entity);
         }

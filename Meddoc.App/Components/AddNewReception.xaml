@@ -45,6 +45,7 @@
                                             FontSize="20" 
                                             PlaceHolder="Сюда вы можете занести какие-то дополнительные данные" />
                 <Button Margin="40,56,0,20" 
+                        x:Name="MainButton"
                         Click="Button_Click" 
                         Background="#1675E4" 
                         Foreground="White" 
