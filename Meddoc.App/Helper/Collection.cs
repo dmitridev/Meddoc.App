@@ -27,12 +27,9 @@ namespace Meddoc.App.Helper
             var db = client.GetDatabase("meddoc");
             string res = new T().GetCollectionName();
             var mongoCollection = db.GetCollection<T>(res);
-            
+
             return mongoCollection.Find(document).FirstOrDefault();
         }
-
-
-
         public static void Save(T @object)
         {
             MongoClient client = new MongoClient(Configuration.Connection);
@@ -74,6 +71,24 @@ namespace Meddoc.App.Helper
                 var res = new T().GetCollectionName();
                 var mongoCollection = db.GetCollection<T>(res).Aggregate<T>(array);
                 return mongoCollection.ToList<T>();
+            }
+            catch
+            {
+
+            }
+
+            return new List<T>();
+        }
+
+        public static List<T> List(FilterDefinition<T> definition)
+        {
+            try
+            {
+                var client = new MongoClient(Configuration.Connection);
+                var db = client.GetDatabase("meddoc");
+                var res = new T().GetCollectionName();
+                var mongoCollection = db.GetCollection<T>(res);
+                return mongoCollection.Find(definition).ToList<T>();
             }
             catch
             {

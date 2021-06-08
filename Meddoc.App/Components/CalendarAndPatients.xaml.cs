@@ -52,17 +52,18 @@ namespace Meddoc.App
         {
             Calendar calendar = (Calendar)sender;
             this.CurrentDate.Text = String.Format("{0:dd MMMM yyyy}", calendar.SelectedDate);
-            DateTime selectedDate = calendar.SelectedDate.Value;
-
+            DateTime selectedDate = calendar.SelectedDate.Value.Date;
+            DateTime selectedDateNewDate = new DateTime(selectedDate.Year,selectedDate.Month, selectedDate.Day + 1);
             this.Receptions.Children.Clear();
 
-
-            var collection = Collection<ReceptionEntity>.List(new BsonDocument());
+            var filterByNow = Builders<ReceptionEntity>.Filter.Gte(r => r.Time, selectedDate);
+            var filterByDayPlusOne = Builders<ReceptionEntity>.Filter.Lte(r => r.Time, selectedDateNewDate);
+            var filter = Builders<ReceptionEntity>.Filter.And(filterByNow, filterByDayPlusOne);
+            var collection = Collection<ReceptionEntity>.List(filter);
             foreach (var item in collection)
             {
                 this.Receptions.Children.Add(new Reception(main, item));
             }
-
         }
     }
 }
