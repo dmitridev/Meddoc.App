@@ -16,7 +16,8 @@ namespace Meddoc.App.Helper
             var mongoCollection = db.GetCollection<T>(res);
             var document = new BsonDocument
             {
-                {"id",id }
+                {"id",id },
+                {"userId",Configuration.currentUser.Id }
             };
             return mongoCollection.Find(document).FirstOrDefault();
         }
@@ -34,6 +35,7 @@ namespace Meddoc.App.Helper
         {
             MongoClient client = new MongoClient(Configuration.Connection);
             var db = client.GetDatabase("meddoc");
+            @object.userId = Configuration.currentUser.Id;
             var mongoCollection = db.GetCollection<T>(@object.GetCollectionName());
             var filter = Builders<T>.Filter.Eq(s => s.Id, @object.Id);
 
