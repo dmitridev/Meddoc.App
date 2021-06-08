@@ -10,7 +10,8 @@
         <Grid>
             <TextBox Padding="{Binding PlaceHolderPadding}"
                      BorderThickness="0" 
-                     Background="#E2E2E2" 
+                     Background="#E2E2E2"
+                     VerticalContentAlignment="Center"
                      x:Name="Textbox"/>
             <TextBlock VerticalAlignment="Center"  Padding="{Binding PlaceHolderPadding}" 
                        TextWrapping="Wrap" 
