@@ -40,7 +40,12 @@ namespace Meddoc.App.Components
 
         private void Name_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            main.MainFrame.Content = new PatientsTable();
+            main.MainFrame.Content = new AddNewReception(entity);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            main.MainFrame.Content = new AddNewReception(entity);
         }
     }
 }

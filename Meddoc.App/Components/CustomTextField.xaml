@@ -12,7 +12,7 @@
                      BorderThickness="0" 
                      Background="#E2E2E2" 
                      x:Name="Textbox"/>
-            <TextBlock Padding="{Binding PlaceHolderPadding}" 
+            <TextBlock VerticalAlignment="Center"  Padding="{Binding PlaceHolderPadding}" 
                        TextWrapping="Wrap" 
                        x:Name="Placeholder" 
                        IsHitTestVisible="False"

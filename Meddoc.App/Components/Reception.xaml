@@ -24,10 +24,10 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
-                <Button Background="#1675E4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button Background="#1675E4" HorizontalAlignment="Left" Click="Button_Click" VerticalAlignment="Center">
                     <Image Source="/Components/Vector3.png" Margin="5" Width="40px" Height="40px"/>
                 </Button>
-                <Button Background="#E82833"  HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Background="#E82833"  HorizontalAlignment="Right" Click="Button_Click" VerticalAlignment="Center">
                     <Image Source="/Components/delete.png" Margin="5" Width="40px" Height="40px"/>
                 </Button>
             </Grid>

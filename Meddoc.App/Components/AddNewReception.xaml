@@ -20,7 +20,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock Text="Новый прием" Margin="40,0,0,0" VerticalAlignment="Center" FontSize="40px" FontWeight="Bold"></TextBlock>
+                <TextBlock x:Name="MainText" Text="Новый прием" Margin="40,0,0,0" VerticalAlignment="Center" FontSize="40px" FontWeight="Bold"></TextBlock>
             </Grid>
             <StackPanel Grid.Row="1">
                 <TextBlock Text="Выберите пациента*" VerticalAlignment="Top" FontSize="20px" FontWeight="Bold" Margin="40,0,0,0" />

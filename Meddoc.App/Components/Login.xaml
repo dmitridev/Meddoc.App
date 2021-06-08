@@ -12,7 +12,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition />
+            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -23,49 +23,17 @@
                 <SolidColorBrush Color="#1675E4"/>
             </Grid.Background>
         </Grid>
-        <Grid Grid.Column="1">
-            <Grid Margin="0,-1,0,1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="209px"/>
-                    <ColumnDefinition Width="545px"/>
-                    <ColumnDefinition Width="206px"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid Grid.Column="1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="248"/>
-                            <RowDefinition Height="350"/>
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <TextBlock x:Name="label" TextBlock.FontWeight="Bold" Text="Вход в аккаунт" FontSize="42px" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <StackPanel>
-                                <components:CustomTextField x:Name="LoginField" FontSize="26px" PlaceHolderPadding="30,15" Height="96" PlaceHolder="Ваш логин..." Margin="0,40,0,40"/>
-                                <components:CustomTextField x:Name="PasswordField" FontSize="26px" PlaceHolderPadding="0,0"  Height="96" PlaceHolder="Ваш пароль..."/>
-                            </StackPanel>
-                            <TextBlock PreviewMouseDown="TextBlock_PreviewMouseDown" VerticalAlignment="Bottom" TextDecorations="Underline"  HorizontalAlignment="Left" Text="регистрация" FontSize="24px" Foreground="#E2E2E2" Margin="34,0,0,21"/>
-                            <TextBlock TextDecorations="Underline" Text="Забыли пароль?" FontSize="24px" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#1675E4" Margin="0,0,27,18"/>
-                        </Grid>
-                        <Grid Grid.Row="2">
-                            <Button VerticalAlignment="Top" Click="Button_Click" Margin="2,-3,-2,0" Foreground="White" Background="#1675E4" Height="96" Content="Войти" FontSize="30px">
-                                <Button.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="11"/>
-                                    </Style>
-                                </Button.Resources>
-                            </Button>
-                        </Grid>
-                    </Grid>
+        <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Вход в аккаунт" Margin="0,0,0,80" FontSize="42" FontWeight="Bold"/>
+                <components:CustomTextField x:Name="LoginField" Width="545" Height="96" FontSize="24" Padding="0,10" PlaceHolder="Введите логин..."/>
+                <components:CustomTextField x:Name="PasswordField" Width="545" Height="96" FontSize="24" Padding="0,10" PlaceHolder="Введите пароль..."/>
+                <Grid>
+                    <TextBlock Text="Регистрация" FontSize="24" TextDecorations="Underline" Foreground="#E2E2E2" PreviewMouseDown="TextBlock_PreviewMouseDown" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Забыли пароль?" FontSize="24" TextDecorations="Underline" Foreground="#1675E4" VerticalAlignment="Center" HorizontalAlignment="Right" />
                 </Grid>
-            </Grid>
+                <Button Background="#1675E4" Click="Button_Click" Width="545" Height="96" Foreground="White" FontSize="30" FontWeight="Bold" Margin="0,80,0,0">Войти</Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

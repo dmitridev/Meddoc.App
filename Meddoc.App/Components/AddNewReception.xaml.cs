@@ -21,11 +21,24 @@ namespace Meddoc.App
     /// </summary>
     public partial class AddNewReception : Page
     {
+        ReceptionEntity entity;
         public AddNewReception()
         {
             InitializeComponent();
             var list = Collection<PatientEntity>.List(new BsonDocument());
             this.Patient.Items.Add(list[0]);
+        }
+
+        public AddNewReception(ReceptionEntity entity)
+        {
+            InitializeComponent();
+            this.entity = entity;
+            this.MainText.Text = "Редактировать приём";
+            this.Patient.Items.Add(this.entity.PatientEntity);
+            this.Patient.SelectedItem = this.entity.PatientEntity;
+            this.Date.Textbox.Text = this.entity.Date.ToString();
+            this.Time.Textbox.Text = this.entity.Time.ToString();
+            this.Description.Textbox.Text = this.entity.Info;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
