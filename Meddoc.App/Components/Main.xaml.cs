@@ -28,8 +28,13 @@ namespace Meddoc.App
             InitializeComponent();
             List<Note> notes = Collection<Note>.List(new MongoDB.Bson.BsonDocument());
             notes.ForEach(note => this.Notes.Children.Add(new Memo(note)));
-            this.Login.Text = Configuration.currentUser?.Login;
-            if(Configuration.currentUser != null)
+            if (Configuration.currentUser.FirstName == null && Configuration.currentUser.LastName == null)
+                this.Login.Text = Configuration.currentUser?.Login;
+            else
+            {
+                this.Login.Text = Configuration.currentUser.FirstName + " " + Configuration.currentUser.LastName + " " + Configuration.currentUser.MiddleName;
+            }
+            if (Configuration.currentUser != null)
                 this.Logo.Source = LoadImage(Convert.FromBase64String(Configuration.currentUser.ImageBase64));
         }
 

@@ -18,6 +18,7 @@
     <None Remove="Components\Photo.png" />
     <None Remove="Components\UpArrow.png" />
     <None Remove="Components\Vector 4.png" />
+    <None Remove="Components\Vector 5.png" />
     <None Remove="Components\Vector3.png" />
     <None Remove="Group.png" />
     <None Remove="logo.png" />
@@ -48,6 +49,7 @@
     <Resource Include="Components\Group.png" />
     <Resource Include="Components\Photo.png" />
     <Resource Include="Components\UpArrow.png" />
+    <Resource Include="Components\Vector 5.png" />
     <Resource Include="Components\Vector3.png" />
     <Resource Include="Components\Ellipse 1.png" />
     <Resource Include="Components\Group1.png" />

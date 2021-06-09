@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Meddoc.App.Entity;
+using Meddoc.App.Helper;
 
 namespace Meddoc.App.Forms
 {
@@ -23,13 +25,19 @@ namespace Meddoc.App.Forms
         public UserInfo()
         {
             InitializeComponent();
-            
+
         }
 
         public UserInfo(Main main)
         {
             InitializeComponent();
             this.main = main;
+            User user = Configuration.currentUser;
+            this.Work.Text = user.Work;
+            this.DateBirth.Text = user.DateBirth.ToString("dd.MM.yyyy");
+            this.Name.Text = user.LastName + " " + user.FirstName + " " + user.MiddleName;
+            if (user.ImageBase64 != null)
+                this.Logo.Source = Images.Load(user.ImageBase64);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

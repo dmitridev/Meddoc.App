@@ -72,7 +72,6 @@
                                             CellStyle="{StaticResource CellStyle}"
                                             ElementStyle="{StaticResource ElementStyleFirst}"
                                             >
-
                             </DataGridTextColumn>
                             <DataGridTextColumn 
                             Header="Диагноз"
@@ -100,20 +99,16 @@
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                             <Button Width="40" Height="40" Margin="0,0,10,0" Background="#1675E4" Click="Button_Click">
-                                                <Image Margin="5" Source="/Components/Vector3.png"></Image>
+                                                <Image Margin="5" Source="/Components/Vector3.png"/>
                                             </Button>
                                             <Button Width="40" Height="40" Background="#E82833">
-                                                <Image Margin="5"  Source="/Components/delete.png"></Image>
+                                                <Image Margin="5"  Source="/Components/delete.png"/>
                                             </Button>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
-                        <DataGrid.Items>
-                            <local:PatientEntity Name="Должевский Иван Николаевич" Diagnoz="Брекеты" DateBirth="" />
-                        </DataGrid.Items>
-
                     </DataGrid>
                 </StackPanel>
             </Border>

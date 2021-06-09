@@ -12,25 +12,60 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Margin="40,40,0,40">
-                <Image Source="" x:Name="Logo" />
+            <Grid Grid.Column="0" >
+                <Image Width="400" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="100,120,0,0" Height="310" Source="/Components/Ellipse 1.png" x:Name="Logo" />
             </Grid>
-            <Grid Grid.Column="1" Margin="40">
+            <Grid Grid.Column="1" Margin="0,140,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" >
-                    <Button BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="Button_Click" Content="Редактировать" Padding="40,10">
+                <Grid Grid.Row="0" Margin="0,20,0,20">
+                    <StackPanel>
+                        <Grid>
+                            <TextBlock Text="Профиль" Margin="10" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#1675E4" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Medium" />
+                            <Button BorderThickness="0" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Редактировать" Width="219" Height="40">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+                        <TextBlock x:Name="Name" FontSize="46" Text="Николаенко Николай Николаевич" FontFamily="/Fonts/Raleway-Bold.ttf #Raleway Bold"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="Должность:" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" FontSize="18px" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                                <TextBlock Text="Дата рождения:" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" FontSize="18px" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock x:Name="Work" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Text="Заведующий отделом терапии" FontSize="18"/>
+                                <TextBlock x:Name="DateBirth" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Text="22.05.1978" FontSize="18px"/>
+                            </StackPanel>
+                        </Grid>
+
+                    </StackPanel>
+
+                    <!--<TextBlock Text="Профиль" Foreground="#1675E4" FontSize="18" VerticalAlignment="Center"/>
+                    <Button BorderThickness="0" 
+                            FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" 
+                            FontSize="16" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Center" 
+                            Click="Button_Click" 
+                            Content="Редактировать" 
+                            Padding="40,10">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="3"/>
@@ -38,16 +73,25 @@
                         </Button.Resources>
                     </Button>
                 </Grid>
-                <Grid Grid.Row="1">
-                    <TextBlock x:Name="Name" FontSize="46px" Text="Не указано"/>
+                <Grid Grid.Row="1" Height="46">
+                    <TextBlock x:Name="Name" FontSize="46px" FontFamily="/Fonts/Raleway-Bold.ttf #Raleway Bold" Text="Не указано"/>
                 </Grid>
                 <Grid Grid.Row="2">
                     <StackPanel>
-                        <TextBlock x:Name="Post" Text="Должность: Не указано"/>
+                        <Grid>
+                            <TextBlock Text="Должность" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" FontSize="18px"/>
+                            <TextBlock  x:Name="Work" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Не указано"/>
+                        </Grid>
                         <TextBlock x:Name="DateBirth" Text="Дата рождения: Не указано" />
                     </StackPanel>
+                    -->
                 </Grid>
+
             </Grid>
+
         </Grid>
+        
+        <Image Margin="1085,235,3,2" Source="/Components/Vector 4.png"/>
+        <Image Source="/Components/Vector 5.png" Margin="850,542,0,-95"/>
     </Grid>
 </Page>

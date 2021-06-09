@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <TextBlock Text="Новый пациент" FontSize="40px" VerticalAlignment="Bottom" Margin="40,0,0,0"/>
+            <TextBlock x:Name="Logo" Text="Новый пациент" FontSize="40px" VerticalAlignment="Bottom" Margin="40,0,0,0"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid>
@@ -29,8 +29,11 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" Margin="40,40,40,175" >
+
                     <Border Background="#e2e2e2" >
-                        <Image Width="100" Height="100"  Source="/Components/Photo.png" />
+                        <Button Click="Button_Click" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                            <Image x:Name="Image" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Components/Photo.png" />
+                        </Button>
                     </Border>
                 </Grid>
                 <Grid Grid.Column="1" Margin="40,25">
@@ -41,6 +44,8 @@
                         <components:CustomTextField PlaceHolderCornerRadius="4" Height="65" x:Name="FirstName" FontSize="20" PlaceHolder="Введите имя пациента"/>
                         <TextBlock Text="Отчество" FontWeight="Bold" FontSize="24px"/>
                         <components:CustomTextField PlaceHolderCornerRadius="4" PlaceHolderPadding="30,15" x:Name="MiddleName" Height="65" FontSize="20" PlaceHolder="Введите отчество пациента"/>
+                        <TextBlock Text="Диагноз" FontWeight="Bold" FontSize="24px"/>
+                        <components:CustomTextField PlaceHolderCornerRadius="4" PlaceHolder="Введите диагноз..." PlaceHolderPadding="30,15" x:Name="Diagnoz" Height="65" FontSize="20"/>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="2" Margin="0,25">
@@ -66,7 +71,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <StackPanel>
-                        <Button Height="88px" Background="#1675E4" Foreground="White" Margin="40,0,0,0" FontSize="24px" Content="Добавить" Click="Button_Add">
+                        <Button Height="88px" x:Name="ButtonAdd" Background="#1675E4" Foreground="White" Margin="40,0,0,0" FontSize="24px" Content="Добавить" Click="Button_Add">
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="11"/>

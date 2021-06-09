@@ -32,6 +32,8 @@ namespace Meddoc.App.Components
             this.MiddleName.Textbox.Text = user.MiddleName;
             this.Email.Textbox.Text = user.Email;
             this.Work.Textbox.Text = user.Work;
+            if (user.ImageBase64 != null)
+                this.Logo.Source = Images.Load(user.ImageBase64);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -62,6 +64,11 @@ namespace Meddoc.App.Components
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             User user = Configuration.currentUser;
+            user.Email = this.Email.Textbox.Text;
+            user.FirstName = this.FirstName.Textbox.Text;
+            user.LastName = this.LastName.Textbox.Text;
+            user.MiddleName = this.MiddleName.Textbox.Text;
+            user.Work = this.Work.Textbox.Text;
             if (image != null)
                 user.ImageBase64 = Convert.ToBase64String(image);
             Collection<User>.Save(user);
