@@ -75,7 +75,7 @@
             <TextBlock Grid.Row="0" Text="Заметки о пациенте:" FontSize="24" VerticalAlignment="Top"></TextBlock>
             <ScrollViewer Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
-                    <components:PatientNote/>
+                    <components:PatientNote Width="374" Height="210"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
