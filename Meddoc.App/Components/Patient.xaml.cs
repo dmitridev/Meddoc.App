@@ -21,18 +21,27 @@ namespace Meddoc.App
     /// </summary>
     public partial class Patient : Page
     {
+
         Main main;
         PatientEntity entity;
+        bool addToReception = false;
         public Patient()
         {
             InitializeComponent();
         }
 
-        public Patient(Main main,PatientEntity entity)
+        public Patient(Main main, PatientEntity entity)
         {
             InitializeComponent();
             this.main = main;
             this.entity = entity;
+        }
+
+        public Patient(Main main, bool addToReception)
+        {
+            InitializeComponent();
+            this.main = main;
+            this.addToReception = addToReception;
         }
 
         public void Button_Add(object sender, RoutedEventArgs e)
@@ -46,6 +55,13 @@ namespace Meddoc.App
                 DateBirth = DateTime.Parse(this.DateBirth.Textbox.Text),
                 History = this.History.Textbox.Text
             };
+            if (addToReception)
+            {
+                Collection<PatientEntity>.Save(entity);
+                ReceptionEntity receptionEntity = new ReceptionEntity();
+                receptionEntity.PatientEntity = entity.Id;
+                main.MainFrame.Content = new AddNewReception(main, receptionEntity);
+            }
             Collection<PatientEntity>.Save(entity);
         }
     }

@@ -24,6 +24,7 @@ namespace Meddoc.App.Components
     {
         Main main;
         ReceptionEntity entity;
+       
         public Reception(Main main, ReceptionEntity entity)
         {
             InitializeComponent();
@@ -40,12 +41,12 @@ namespace Meddoc.App.Components
 
         private void Name_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            main.MainFrame.Content = new AddNewReception(entity);
+            main.MainFrame.Content = new AddNewReception(main,entity);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            main.MainFrame.Content = new AddNewReception(entity);
+            main.MainFrame.Content = new AddNewReception(main,entity);
         }
     }
 }

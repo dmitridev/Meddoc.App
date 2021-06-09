@@ -40,7 +40,7 @@ namespace Meddoc.App
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            main.MainFrame.Content = new AddNewReception();
+            main.MainFrame.Content = new AddNewReception(main);
         }
 
         private void Calendar_Click(object sender, RoutedEventArgs e)

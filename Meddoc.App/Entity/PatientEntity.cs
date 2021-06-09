@@ -12,16 +12,16 @@ namespace Meddoc.App.Entity
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Diagnoz { get; set; }
-        
+
         public DateTime DateBirth { get; set; }
-        
+
         public string History { get; set; }
-        
+
         public PatientWrapper toWrapper()
         {
             return new PatientWrapper
             {
-                Name = Name + " " + LastName + " " + MiddleName,
+                Name = LastName + " " + Name + " " + MiddleName,
                 DateBirth = DateBirth,
                 Diagnoz = Diagnoz
             };
@@ -29,7 +29,7 @@ namespace Meddoc.App.Entity
 
         public override string ToString()
         {
-            return this.Name + " " + this.LastName + " " + this.MiddleName;
+            return " " + this.LastName + " " + this.Name + " " + " " + this.MiddleName;
         }
         public override string GetCollectionName() => "patients";
     }

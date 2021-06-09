@@ -36,7 +36,6 @@ namespace Meddoc.App
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.MainFrame.Content = new CalendarAndPatients(this);
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
