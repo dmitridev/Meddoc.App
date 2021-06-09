@@ -99,5 +99,20 @@ namespace Meddoc.App.Helper
 
             return new List<T>();
         }
+
+        public static void Del(T @object)
+        {
+            MongoClient client = new MongoClient(Configuration.Connection);
+            var db = client.GetDatabase("meddoc");
+            string name = @object.GetCollectionName();
+            var filter = Builders<T>.Filter.Eq(obj => obj.Id, @object.Id);
+            try
+            {
+                db.GetCollection<T>(name).FindOneAndDelete<T>(filter);
+            }catch(Exception e)
+            {
+                //Log error;
+            }
+        }
     }
 }

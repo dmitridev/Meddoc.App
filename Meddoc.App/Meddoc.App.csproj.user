@@ -10,6 +10,9 @@
     <Compile Update="Components\CustomTextField.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\DeleteObj.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\EditUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Components\CustomTextField.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\DeleteObj.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\dictionary.xaml">

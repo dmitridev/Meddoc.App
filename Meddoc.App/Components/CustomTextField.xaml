@@ -7,12 +7,16 @@
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              >
     <Border BorderBrush="#E2E2E2" BorderThickness="10" CornerRadius="{Binding PlaceHolderCornerRadius}">
+        <Border.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="1" Softness="1" ShadowDepth="1" Opacity="0.2" />
+        </Border.BitmapEffect>
         <Grid>
             <TextBox Padding="{Binding PlaceHolderPadding}"
                      BorderThickness="0" 
                      Background="#E2E2E2"
                      VerticalContentAlignment="Center"
-                     x:Name="Textbox"/>
+                     x:Name="Textbox">
+            </TextBox>
             <TextBlock VerticalAlignment="Center"  Padding="{Binding PlaceHolderPadding}" 
                        TextWrapping="Wrap" 
                        x:Name="Placeholder" 

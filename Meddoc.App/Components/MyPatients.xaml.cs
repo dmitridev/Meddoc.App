@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using MongoDB.Bson;
 using Meddoc.App.Helper;
 using Meddoc.App.Entity;
+using Meddoc.App.Components;
 
 namespace Meddoc.App.Forms
 {
@@ -38,13 +39,13 @@ namespace Meddoc.App.Forms
 
         private void LoadPatients()
         {
-            
+
             var list = Collection<PatientEntity>.List(new BsonDocument());
-            foreach(var item in list)
+            foreach (var item in list)
             {
                 this.Table.Items.Add(item);
             }
-            
+
         }
 
         public void Add_Patient(object sender, RoutedEventArgs e)
@@ -55,19 +56,31 @@ namespace Meddoc.App.Forms
         private void DataGridCell_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
-            main.MainFrame.Content = new PatientsTable(main,patientEntity);
+            main.MainFrame.Content = new PatientsTable(main, patientEntity);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
-            main.MainFrame.Content = new PatientsTable(main,patientEntity);
+            main.MainFrame.Content = new PatientsTable(main, patientEntity);
         }
 
         private void DataGridTextColumn_MouseDown(object sender, MouseButtonEventArgs e)
         {
             PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
-            main.MainFrame.Content = new PatientsTable(main,patientEntity);
+            main.MainFrame.Content = new PatientsTable(main, patientEntity);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            DeleteObj deleteObj = new DeleteObj();
+            bool? result = deleteObj.ShowDialog();
+            if (result.Value)
+            {
+                PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
+                Collection<PatientEntity>.Del(patientEntity);
+            }
+            main.MainFrame.Content = new MyPatients(main);
         }
     }
 }

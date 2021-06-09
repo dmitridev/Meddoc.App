@@ -5,34 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              Background="White"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="210" d:DesignWidth="374">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <TextBlock Text="Дата:" x:Name="NoteDate" />
-            </Grid>
-            <Grid Grid.Column="1">
-                <Button Background="#1675E4" Margin="10,0" Click="Button_Click">
-                    <Image Source="/Components/Vector3.png"/>
-                </Button>
-            </Grid>
-            <Grid Grid.Column="2">
-                <Button Background="#E82833" Margin="10,0" Click="Button_Click_1">
-                    <Image Source="/Components/delete.png" />
-                </Button>
-            </Grid>
-        </Grid>
-        <Grid Grid.Row="1" >
-            <TextBlock x:Name="NoteText" FontSize="20px" Margin="10,10,20,10" Background="#1675E4" Foreground="White"/>
-        </Grid>
+        <DockPanel Grid.Row="0" Margin="5" LastChildFill="False">
+            <TextBlock Text="Дата:" FontSize="16" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Medium" DockPanel.Dock="Left"/>
+            <TextBlock x:Name="Date" Text="12.08.2020" FontSize="16" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Medium" DockPanel.Dock="Left"/>
+            <Button DockPanel.Dock="Right" Background="#E82833"  Width="40" Height="40" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                    </Style>
+                </Button.Resources>
+                <Image Width="25" Source="/Components/delete.png"/>
+            </Button>
+            <Button DockPanel.Dock="Right" Background="#1675E4" Width="40" Margin="10,0" Height="40" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                    </Style>
+                </Button.Resources>
+                <Image Width="25" Source="/Components/Vector3.png"/>
+            </Button>
+        </DockPanel>
+        <TextBlock FontFamily="/Fonts/Raleway-SemiBold.ttf" FontSize="20" Grid.Row="1" Margin="5" Background="#1675E4">
+            
+        </TextBlock>
     </Grid>
 </UserControl>

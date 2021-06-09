@@ -32,6 +32,7 @@ namespace Meddoc.App.Components
             this.MiddleName.Textbox.Text = user.MiddleName;
             this.Email.Textbox.Text = user.Email;
             this.Work.Textbox.Text = user.Work;
+            this.DateBirth.Textbox.Text = user.DateBirth.ToString("dd.MM.yyyy");
             if (user.ImageBase64 != null)
                 this.Logo.Source = Images.Load(user.ImageBase64);
         }
@@ -69,6 +70,7 @@ namespace Meddoc.App.Components
             user.LastName = this.LastName.Textbox.Text;
             user.MiddleName = this.MiddleName.Textbox.Text;
             user.Work = this.Work.Textbox.Text;
+            user.DateBirth = DateTime.Parse(this.DateBirth.Textbox.Text);
             if (image != null)
                 user.ImageBase64 = Convert.ToBase64String(image);
             Collection<User>.Save(user);

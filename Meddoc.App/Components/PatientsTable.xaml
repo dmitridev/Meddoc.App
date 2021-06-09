@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <StackPanel Margin="40px">
-                    <TextBlock x:Name="PatientName" FontFamily="Fonts/#Raleway" FontSize="40px" Text="Должевский Иван николаевич"/>
+                    <TextBlock x:Name="PatientName" FontFamily="/Fonts/Raleway-Bold.ttf #Raleway Bold" FontSize="40px" Text="Должевский Иван николаевич"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
@@ -46,33 +46,62 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Image x:Name="Avatar" Margin="40px" Width="120" Height="120" Source="/Components/Photo.png"/>
+                <Image x:Name="Avatar" Margin="40px" Source="/Components/Photo.png"/>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition />
-                    <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                <StackPanel>
-                    <TextBlock x:Name="Diagnoz" FontFamily="Fonts/#Raleway" FontSize="20" Text="Диагноз:"/>
-                        <TextBlock x:Name="DateBirth" FontFamily="Fonts/#Raleway" FontSize="20" Text="Дата рождения:" />
-                        <TextBlock FontSize="20" FontFamily="Fonts/#Raleway" Text="История пациента" />
-                </StackPanel>
-                </Grid>
-                <Grid Grid.Row="1" Margin="40px">
-                    <TextBlock x:Name="PatientHistory" FontSize="18px"/>
+                    <StackPanel>
+                        <TextBlock VerticalAlignment="Top" x:Name="Diagnoz" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" FontSize="20" Text="Диагноз:"/>
+                        <TextBlock VerticalAlignment="Center" x:Name="DateBirth" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" FontSize="20" Text="Дата рождения:" />
+                        <TextBlock VerticalAlignment="Bottom" FontSize="20" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Text="История пациента:" />
+
+                        <TextBlock x:Name="PatientHistory" Height="201" Margin="20px" FontSize="18px">
+                            <TextBlock.BitmapEffect>
+                                <DropShadowBitmapEffect Color="Black" Direction="1" Softness="1" ShadowDepth="1" Opacity="0.2" />
+                            </TextBlock.BitmapEffect>
+                        </TextBlock>
+                    </StackPanel>
                 </Grid>
             </Grid>
         </Grid>
-        <Grid Grid.Row="2" Margin="10,0">
-            <TextBlock Text="Заметки о пациенте" FontSize="24px"/>
-            <StackPanel Orientation="Horizontal" x:Name="Notes">
-            </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Заметки о пациенте:" FontSize="24" VerticalAlignment="Top"></TextBlock>
+            <ScrollViewer Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <components:PatientNote/>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
         <Grid Grid.Row="3" Margin="10px" >
-            <Button HorizontalAlignment="Left" Content="Назад"  Width="300px" Margin="40px"/>
-            <Button HorizontalAlignment="Right" Content="Новая заметка" Width="300px" Margin="40px"/>
+            <Button HorizontalAlignment="Left"  Content="Назад" FontSize="26" Foreground="#1675E4"  Width="478px" Height="88" BorderBrush="#1675E4" Background="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button HorizontalAlignment="Right" 
+                    Content="Новая заметка" 
+                    Width="478px" 
+                    Height="88" 
+                    Background="#1675E4"
+                    Foreground="White"
+                    Click="Button_Click_1"
+                    FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" 
+                    FontSize="26">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Grid>
     </Grid>
 </Page>

@@ -47,7 +47,7 @@
                 <Grid Grid.Column="2" Margin="0,25">
                     <StackPanel>
                         <TextBlock Text="Год рождения" FontWeight="Bold" FontSize="24px"/>
-                        <local:CustomTextField PlaceHolderCornerRadius="4" FontSize="20" Height="65" PlaceHolder="ДД.ММ.ГГ"/>
+                        <local:CustomTextField x:Name="DateBirth" PlaceHolderCornerRadius="4" FontSize="20" Height="65" PlaceHolder="ДД.ММ.ГГ"/>
                         <TextBlock Text="Email" FontWeight="Bold" FontSize="24px"/>
                         <local:CustomTextField x:Name="Email" PlaceHolderCornerRadius="4" FontSize="20" Height="65" PlaceHolder="Введите адрес электронной почты"/>
                         <TextBlock Text="Должность" FontWeight="Bold" FontSize="24px"/>

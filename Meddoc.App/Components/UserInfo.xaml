@@ -8,7 +8,6 @@
       d:DesignHeight="986" d:DesignWidth="1539"
       Background="White"
       Title="UserInfo">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -20,7 +19,9 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" >
-                <Image Width="400" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="100,120,0,0" Height="310" Source="/Components/Ellipse 1.png" x:Name="Logo" />
+                <Image Width="400" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="100,120,0,0" Height="310" Source="/Components/Ellipse 1.png" x:Name="Logo">
+                    
+                </Image>
             </Grid>
             <Grid Grid.Column="1" Margin="0,140,0,0">
                 <Grid.RowDefinitions>
@@ -30,7 +31,7 @@
                     <StackPanel>
                         <Grid>
                             <TextBlock Text="Профиль" Margin="10" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#1675E4" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Medium" />
-                            <Button BorderThickness="0" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Редактировать" Width="219" Height="40">
+                            <Button BorderThickness="0" Click="Button_Click" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Редактировать" Width="219" Height="40">
                                 <Button.Resources>
                                     <Style TargetType="{x:Type Border}">
                                         <Setter Property="CornerRadius" Value="4"/>
@@ -54,37 +55,7 @@
                                 <TextBlock x:Name="DateBirth" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Text="22.05.1978" FontSize="18px"/>
                             </StackPanel>
                         </Grid>
-
                     </StackPanel>
-
-                    <!--<TextBlock Text="Профиль" Foreground="#1675E4" FontSize="18" VerticalAlignment="Center"/>
-                    <Button BorderThickness="0" 
-                            FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" 
-                            FontSize="16" 
-                            HorizontalAlignment="Right" 
-                            VerticalAlignment="Center" 
-                            Click="Button_Click" 
-                            Content="Редактировать" 
-                            Padding="40,10">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="3"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                </Grid>
-                <Grid Grid.Row="1" Height="46">
-                    <TextBlock x:Name="Name" FontSize="46px" FontFamily="/Fonts/Raleway-Bold.ttf #Raleway Bold" Text="Не указано"/>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <StackPanel>
-                        <Grid>
-                            <TextBlock Text="Должность" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" FontSize="18px"/>
-                            <TextBlock  x:Name="Work" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Не указано"/>
-                        </Grid>
-                        <TextBlock x:Name="DateBirth" Text="Дата рождения: Не указано" />
-                    </StackPanel>
-                    -->
                 </Grid>
 
             </Grid>
