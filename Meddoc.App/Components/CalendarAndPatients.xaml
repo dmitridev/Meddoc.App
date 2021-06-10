@@ -148,7 +148,7 @@
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
-                                <VisualStateGroup x:Name="CalendarButtonFocusStates">
+                                <VisualStateGroup x:Name="ButtonFocusStates">
                                     <VisualStateGroup.Transitions>
                                         <VisualTransition GeneratedDuration="0"/>
                                     </VisualStateGroup.Transitions>
@@ -420,11 +420,13 @@
                         <RowDefinition Height="1.5*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <TextBlock Text="Расписание приемов" Margin="40" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" VerticalAlignment="Center" FontSize="40px"></TextBlock>
+                        <TextBlock Text="Расписание приемов" 
+                                   Margin="40" 
+                                   FontFamily="/Fonts/#Raleway SemiBold" VerticalAlignment="Center" FontSize="40px"></TextBlock>
                     </Grid>
                     <Grid Margin="40,10" Grid.Row="1">
                         <Border>
-                            <Calendar Style="{DynamicResource CalendarStyleMain}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStylMain}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleMain}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleMain}" Calendar.SelectedDatesChanged="Calendar_SelectedDatesChanged"/>
+                            <Calendar x:Name="CalendarItem" Style="{DynamicResource CalendarStyleMain}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStylMain}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleMain}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleMain}" Calendar.SelectedDatesChanged="Calendar_SelectedDatesChanged"/>
                         </Border>
                     </Grid>
                     <Grid Grid.Row="2">
@@ -432,7 +434,14 @@
                             <Button Margin="40,40" Background="#1675E4" Foreground="White" FontSize="26px" Height="88px" Click="Button_Click_1">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Width="25" Source="/Components/Plus.png" VerticalAlignment="Center" Margin="10,10"/>
-                                    <TextBlock Text="Добавить новый прием" VerticalAlignment="Center" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold"/>
+                                    <TextBlock Text="Добавить новый прием" VerticalAlignment="Center" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold">
+                                        <TextBlock.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="11"/>
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                            </Style>
+                                        </TextBlock.Resources>
+                                    </TextBlock>
                                 </StackPanel>
                                 <Button.Resources>
                                     <Style TargetType="{x:Type Border}">
@@ -440,7 +449,7 @@
                                     </Style>
                                 </Button.Resources>
                             </Button>
-                            <Button BorderThickness="2" Margin="40,0" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Content="Новая заметка" FontSize="24px" Background="White"  Foreground="#1675E4" Height="88px" Click="Button_Click">
+                            <Button BorderThickness="2" Margin="40,0" FontFamily="/Fonts/#Raleway SemiBold" Content="Новая заметка" FontSize="24px" Background="White"  Foreground="#1675E4" Height="88px" Click="Button_Click">
                                 <Button.BorderBrush>
                                     <SolidColorBrush Color="#1675E4"/>
                                 </Button.BorderBrush>
@@ -461,19 +470,18 @@
                         <RowDefinition Height="5*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <TextBlock x:Name="CurrentDate" Text="Дата" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40,0" FontSize="24px"/>
-                        <TextBlock Text="Сегодня 20 Пациентов" x:Name="PatientsCount" Margin="40,0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="24px"/>
+                        <TextBlock x:Name="CurrentDate" Text="" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40,0" FontSize="24px"/>
+                        <TextBlock Text="" x:Name="PatientsCount" Margin="40,0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="24px"/>
                     </Grid>
                     <Border Grid.Row="1" Margin="30" CornerRadius="4" BorderThickness="2" >
                         <Border.BorderBrush>
                             <SolidColorBrush Color="Black" Opacity="0.15"/>
                         </Border.BorderBrush>
-                        <ScrollViewer>
+                        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
                             <StackPanel x:Name="Receptions">
                             </StackPanel>
                         </ScrollViewer>
                     </Border>
-
                 </Grid>
             </Grid>
         </Grid>

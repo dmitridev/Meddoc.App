@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Group.png" />
+    <None Remove="Assets\Plus.png" />
     <None Remove="Components\ArrowLeft.png" />
     <None Remove="Components\ArrowRight.png" />
     <None Remove="Components\ArrowUp.png" />
@@ -42,24 +44,41 @@
     <Resource Include="Assets\Group.png" />
     <Resource Include="Assets\logo.png" />
     <Resource Include="Assets\Patients.png" />
+    <Resource Include="Assets\Plus.png" />
     <Resource Include="Assets\register_logo.png" />
     <Resource Include="Assets\Vector.jpg" />
     <Resource Include="Assets\Vector.png" />
     <Resource Include="Assets\Блок лого.png" />
-    <Resource Include="Components\ArrowLeft.png" />
-    <Resource Include="Components\ArrowRight.png" />
-    <Resource Include="Components\delete.png" />
-    <Resource Include="Components\Group.png" />
-    <Resource Include="Components\Left.png" />
-    <Resource Include="Components\Photo.png" />
-    <Resource Include="Components\Plus.png" />
-    <Resource Include="Components\Right.png" />
+    <Resource Include="Assets\ArrowLeft.png" />
+    <Resource Include="Assets\ArrowRight.png" />
+    <Resource Include="Assets\delete.png" />
+    <Resource Include="Assets\Left.png" />
+    <Resource Include="Assets\Photo.png" />
+    <Resource Include="Assets\Right.png" />
     <Resource Include="Assets\ArrowUp.png" />
-    <Resource Include="Components\Vector 5.png" />
-    <Resource Include="Components\Vector3.png" />
-    <Resource Include="Components\Ellipse 1.png" />
-    <Resource Include="Components\Group1.png" />
-    <Resource Include="Components\Vector 4.png" />
+    <Resource Include="Assets\Vector 5.png" />
+    <Resource Include="Assets\Vector3.png" />
+    <Resource Include="Assets\Ellipse 1.png" />
+    <Resource Include="Assets\Group1.png" />
+    <Resource Include="Assets\Vector 4.png" />
+    <Resource Include="Fonts\Raleway-Black.ttf" />
+    <Resource Include="Fonts\Raleway-BlackItalic.ttf" />
+    <Resource Include="Fonts\Raleway-Bold.ttf" />
+    <Resource Include="Fonts\Raleway-BoldItalic.ttf" />
+    <Resource Include="Fonts\Raleway-ExtraBold.ttf" />
+    <Resource Include="Fonts\Raleway-ExtraBoldItalic.ttf" />
+    <Resource Include="Fonts\Raleway-ExtraLight.ttf" />
+    <Resource Include="Fonts\Raleway-ExtraLightItalic.ttf" />
+    <Resource Include="Fonts\Raleway-Italic.ttf" />
+    <Resource Include="Fonts\Raleway-Light.ttf" />
+    <Resource Include="Fonts\Raleway-LightItalic.ttf" />
+    <Resource Include="Fonts\Raleway-Medium.ttf" />
+    <Resource Include="Fonts\Raleway-MediumItalic.ttf" />
+    <Resource Include="Fonts\Raleway-Regular.ttf" />
+    <Resource Include="Fonts\Raleway-SemiBold.ttf" />
+    <Resource Include="Fonts\Raleway-Thin.ttf" />
+    <Resource Include="Fonts\Raleway-ThinItalic.ttf" />
+    
   </ItemGroup>
 
   <ItemGroup>

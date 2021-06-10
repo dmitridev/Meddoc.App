@@ -30,6 +30,8 @@ namespace Meddoc.App
         {
             InitializeComponent();
             this.main = main;
+            this.CalendarItem.SelectedDate = DateTime.Now;
+            GetCurrentDatePatients(this.CalendarItem);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,6 +56,16 @@ namespace Meddoc.App
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             Calendar calendar = (Calendar)sender;
+            GetCurrentDatePatients(calendar);
+        }
+
+        private void PART_HeaderButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        void GetCurrentDatePatients(Calendar calendar)
+        {
             this.CurrentDate.Text = String.Format("{0:dd MMMM yyyy}", calendar.SelectedDate);
             //TODO: Баг с 31 мая.
             DateTime selectedDate = calendar.SelectedDate.Value.Date;
@@ -69,11 +81,6 @@ namespace Meddoc.App
                 this.Receptions.Children.Add(new Reception(main, item));
             }
             this.PatientsCount.Text = "В этот день" + collection.Count + " пациент(а)(ов)";
-        }
-
-        private void PART_HeaderButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -120,7 +120,7 @@
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Width="40" x:Name="Logo" Height="40" VerticalAlignment="Top" Source="/Components/Photo.png">
+                                    <Image Width="40" x:Name="Logo" Stretch="None" Height="40" VerticalAlignment="Top" Source="/Components/Photo.png">
                                         <Image.Clip>
                                             <RectangleGeometry RadiusX="40" RadiusY="40" Rect="0,0,40,40"/>
                                         </Image.Clip>
@@ -129,8 +129,17 @@
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="2" Grid.Row="0">
-                                <Button Background="#e2e2e2" Width="40" Height="40" Click="Button_Click_3">
-                                    <Image Width="20" Source="/Components/Group1.png" />
+                                <Button Background="#e2e2e2" Width="40" Height="40" Click="Button_Click_3" BorderThickness="0">
+                                    <Image Width="20" Source="/Assets/Group1.png" />
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="4"/>
+                                        </Style>
+                                    </Button.Resources>
+                                    <Button.BitmapEffect>
+                                        <DropShadowBitmapEffect Color="Black" Opacity="0.45" Direction="-70" Softness=".5">
+                                        </DropShadowBitmapEffect>
+                                    </Button.BitmapEffect>
                                 </Button>
                             </Grid>
                         </Grid>

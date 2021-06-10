@@ -32,7 +32,7 @@ namespace Meddoc.App
                 this.Login.Text = Configuration.currentUser?.Login;
             else
             {
-                this.Login.Text = Configuration.currentUser.FirstName + " " + Configuration.currentUser.LastName + " " + Configuration.currentUser.MiddleName;
+                this.Login.Text = Configuration.currentUser.FirstName + " " + Configuration.currentUser.MiddleName + " " + Configuration.currentUser.LastName + " ";
             }
             if (Configuration.currentUser != null)
                 this.Logo.Source = LoadImage(Convert.FromBase64String(Configuration.currentUser.ImageBase64));
