@@ -34,8 +34,11 @@ namespace Meddoc.App
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NoteWindow note = new NoteWindow(new long());
-            note.ShowDialog();
+            NoteWindow note = new NoteWindow(main, Dto.NoteType.NoteWindow, null, new ObjectId());
+            if (note.ShowDialog().Value == true)
+            {
+                this.NavigationService.Navigate(new Main());
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -54,7 +57,7 @@ namespace Meddoc.App
             this.CurrentDate.Text = String.Format("{0:dd MMMM yyyy}", calendar.SelectedDate);
             //TODO: Баг с 31 мая.
             DateTime selectedDate = calendar.SelectedDate.Value.Date;
-            DateTime selectedDateNewDate = new DateTime(selectedDate.Year,selectedDate.Month, selectedDate.Day + 1);
+            DateTime selectedDateNewDate = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day + 1);
             this.Receptions.Children.Clear();
 
             var filterByNow = Builders<ReceptionEntity>.Filter.Gte(r => r.Time, selectedDate);
