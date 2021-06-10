@@ -33,8 +33,18 @@
                 <Image Width="25" Source="/Components/Vector3.png"/>
             </Button>
         </DockPanel>
-        <TextBlock FontFamily="/Fonts/Raleway-SemiBold.ttf" FontSize="20" Grid.Row="1" Margin="5" Background="#1675E4">
-            
-        </TextBlock>
+        <Border Background="#1675E4" Grid.Row="1" CornerRadius="4">
+            <TextBox IsReadOnly="True" BorderThickness="0"
+                     Background="#1675E4"
+                     x:Name="Text" 
+                     VerticalContentAlignment="Top" 
+                     Foreground="White" 
+                     HorizontalContentAlignment="Center" 
+                     FontFamily="/Fonts/Raleway-SemiBold.ttf" 
+                     FontSize="20" 
+                     Margin="5" 
+                     />
+        </Border>
+
     </Grid>
 </UserControl>

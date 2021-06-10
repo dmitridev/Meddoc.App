@@ -30,12 +30,15 @@ namespace Meddoc.App.Components
             InitializeComponent();
             this.main = main;
             this.entity = entity;
-            this.Time.Text = entity.Time.ToString();
+            this.Time.Text = entity.Time.ToString("HH:mm");
             var document = new BsonDocument
             {
                 {"_id",this.entity.PatientEntity }
             };
-            this.Name.Text = Collection<PatientEntity>.Load(document)?.Name;
+
+            var item = Collection<PatientEntity>.Load(document);
+
+            this.Name.Text = item?.Name + " " + item?.LastName;
             this.Description.Text = this.entity.Info;
         }
 
@@ -53,6 +56,11 @@ namespace Meddoc.App.Components
                 Collection<ReceptionEntity>.Del(entity);
                 main.MainFrame.Content = new CalendarAndPatients(main);
             }
+        }
+
+        private void Button_Add(object sender, RoutedEventArgs e)
+        {
+            main.MainFrame.Content = new AddNewReception(main, entity);
         }
     }
 }

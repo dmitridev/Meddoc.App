@@ -11,8 +11,8 @@
     <Page.Resources>
         <Style x:Key="CalendarCalendarButtonStyleMain" TargetType="{x:Type CalendarButton}">
             <Setter Property="Background" Value="#FFBADDE9"/>
-            <Setter Property="MinWidth" Value="40"/>
-            <Setter Property="MinHeight" Value="42"/>
+            <Setter Property="MinWidth" Value="30"/>
+            <Setter Property="MinHeight" Value="30"/>
             <Setter Property="FontSize" Value="10"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -102,12 +102,12 @@
             </Setter>
         </Style>
         <Style x:Key="CalendarCalendarDayButtonStyleMain" TargetType="{x:Type CalendarDayButton}">
-            <Setter Property="MinWidth" Value="20"/>
-            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="MinWidth" Value="30"/>
+            <Setter Property="MinHeight" Value="30"/>
             <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Padding" Value="20"/>
-            <Setter Property="Margin" Value="12"/>
-            <Setter Property="FontFamily" Value="/Fonts/Raleway-Medium.ttf #Raleway Medium"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontFamily" Value="/Fonts/Raleway-Bold.ttf #Raleway Bold"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Template">
@@ -247,9 +247,10 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1">
-                                <Border BorderThickness="2" CornerRadius="8" Padding="0,10">
+                                <Border BorderThickness="3" CornerRadius="8" Padding="40,35">
+
                                     <Border.BorderBrush>
-                                        <SolidColorBrush Color="#000" Opacity="0.05"/>
+                                        <SolidColorBrush Color="#000" Opacity="0.10"/>
                                     </Border.BorderBrush>
                                     <Grid>
                                         <Grid.Resources>
@@ -270,9 +271,10 @@
                                                             </VisualState>
                                                         </VisualStateGroup>
                                                     </VisualStateManager.VisualStateGroups>
-                                                    <Rectangle Fill="#11E5EBF1" Opacity="1" Stretch="Fill"/>
+                                                    <Rectangle Fill="#11E5EBF1" Opacity="1"/>
                                                     <Grid>
-                                                        <Path x:Name="path" Data="M288.75,232.25 L288.75,240.625 L283,236.625 z" Fill="#FF333333" HorizontalAlignment="Left" Height="10" Margin="14,-6,0,0" Stretch="Fill" VerticalAlignment="Center" Width="6"/>
+                                                        <Path x:Name="path" Fill="#1675E4" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"  Width="20" Height="20"/>
+                                                        <Image Source="/Components/Left.png"/>
                                                     </Grid>
                                                 </Grid>
                                             </ControlTemplate>
@@ -295,7 +297,8 @@
                                                     </VisualStateManager.VisualStateGroups>
                                                     <Rectangle Fill="#11E5EBF1" Opacity="1" Stretch="Fill"/>
                                                     <Grid>
-                                                        <Path x:Name="path" Data="M282.875,231.875 L282.875,240.375 L288.625,236 z" Fill="#FF333333" HorizontalAlignment="Right" Height="10" Margin="0,-6,14,0" Stretch="Fill" VerticalAlignment="Center" Width="6"/>
+                                                        <Path x:Name="path" Fill="#1675E4" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Height="20"/>
+                                                        <Image Source="/Components/Right.png"/>
                                                     </Grid>
                                                 </Grid>
                                             </ControlTemplate>
@@ -321,18 +324,18 @@
                                             </ControlTemplate>
                                         </Grid.Resources>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="2.5*"/>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
-                                        <Button x:Name="PART_PreviousButton" Grid.Column="2" Focusable="False" HorizontalAlignment="Left" Height="20" Grid.Row="0" Template="{StaticResource PreviousButtonTemplate}" Width="28"/>
-                                        <Button x:Name="PART_HeaderButton" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Men" Grid.Column="0"  Focusable="False" FontSize="24" HorizontalAlignment="Left" Margin="20,0" Grid.Row="0" Template="{StaticResource HeaderButtonTemplate}" VerticalAlignment="Center"/>
-                                        <Button x:Name="PART_NextButton" Grid.Column="2" Focusable="False" HorizontalAlignment="Right" Height="20" Grid.Row="0" Template="{StaticResource NextButtonTemplate}" Width="28"/>
-                                        <Grid x:Name="PART_MonthView" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="6,-1,6,6" Grid.Row="1" Visibility="Visible">
+                                        <Button x:Name="PART_PreviousButton" Grid.Column="2" Focusable="False" HorizontalAlignment="Left" Height="40" Grid.Row="0" Template="{StaticResource PreviousButtonTemplate}" Width="40"/>
+                                        <Button x:Name="PART_HeaderButton" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Men" Grid.Column="0"  Focusable="False" FontSize="24" HorizontalAlignment="Left" Margin="0" Grid.Row="0" Template="{StaticResource HeaderButtonTemplate}" VerticalAlignment="Center" Click="PART_HeaderButton_Click"/>
+                                        <Button x:Name="PART_NextButton" Grid.Column="2" Focusable="False" HorizontalAlignment="Right" Height="40" Grid.Row="0" Template="{StaticResource NextButtonTemplate}" Width="40"/>
+                                        <Grid x:Name="PART_MonthView" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0" Grid.Row="1" Visibility="Visible">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
@@ -409,29 +412,35 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
+            <Border Grid.Column="0" BorderThickness="0,0,2,0" BorderBrush="#E2E2E2">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
+                        <RowDefinition Height="1*"/>
                         <RowDefinition Height="3*"/>
-                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1.5*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <TextBlock Text="Расписание приемов" Margin="40" FontFamily="Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" VerticalAlignment="Center" FontSize="40px"></TextBlock>
+                        <TextBlock Text="Расписание приемов" Margin="40" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" VerticalAlignment="Center" FontSize="40px"></TextBlock>
                     </Grid>
-                    <Grid Margin="0,164,0,0" Grid.RowSpan="2">
-                        <Calendar Style="{DynamicResource CalendarStyleMain}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStylMain}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleMain}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleMain}" Calendar.SelectedDatesChanged="Calendar_SelectedDatesChanged"/>
+                    <Grid Margin="40,10" Grid.Row="1">
+                        <Border>
+                            <Calendar Style="{DynamicResource CalendarStyleMain}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStylMain}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleMain}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleMain}" Calendar.SelectedDatesChanged="Calendar_SelectedDatesChanged"/>
+                        </Border>
                     </Grid>
                     <Grid Grid.Row="2">
                         <StackPanel>
-                            <Button Margin="40,40" Content="Добавить приём" Background="#1675E4" Foreground="White" FontSize="24px" Height="88px" Click="Button_Click_1">
+                            <Button Margin="40,40" Background="#1675E4" Foreground="White" FontSize="26px" Height="88px" Click="Button_Click_1">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="25" Source="/Components/Plus.png" VerticalAlignment="Center" Margin="10,10"/>
+                                    <TextBlock Text="Добавить новый прием" VerticalAlignment="Center" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold"/>
+                                </StackPanel>
                                 <Button.Resources>
                                     <Style TargetType="{x:Type Border}">
                                         <Setter Property="CornerRadius" Value="11"/>
                                     </Style>
                                 </Button.Resources>
                             </Button>
-                            <Button BorderThickness="2" Margin="40,0"  Content="Новая заметка" FontSize="24px" Background="White"  Foreground="#1675E4" Height="88px" Click="Button_Click">
+                            <Button BorderThickness="2" Margin="40,0" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Content="Новая заметка" FontSize="24px" Background="White"  Foreground="#1675E4" Height="88px" Click="Button_Click">
                                 <Button.BorderBrush>
                                     <SolidColorBrush Color="#1675E4"/>
                                 </Button.BorderBrush>
@@ -444,7 +453,7 @@
                         </StackPanel>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Border>
             <Grid Grid.Column="1">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -455,17 +464,16 @@
                         <TextBlock x:Name="CurrentDate" Text="Дата" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40,0" FontSize="24px"/>
                         <TextBlock Text="Сегодня 20 Пациентов" x:Name="PatientsCount" Margin="40,0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="24px"/>
                     </Grid>
-                    <Grid Grid.Row="1">
-                        <Border CornerRadius="4" BorderThickness="2" >
-                            <Border.BorderBrush>
-                                <SolidColorBrush Color="Black" Opacity="0.15"/>
-                            </Border.BorderBrush>
+                    <Border Grid.Row="1" Margin="30" CornerRadius="4" BorderThickness="2" >
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="Black" Opacity="0.15"/>
+                        </Border.BorderBrush>
                         <ScrollViewer>
                             <StackPanel x:Name="Receptions">
                             </StackPanel>
                         </ScrollViewer>
-                        </Border>
-                    </Grid>
+                    </Border>
+
                 </Grid>
             </Grid>
         </Grid>

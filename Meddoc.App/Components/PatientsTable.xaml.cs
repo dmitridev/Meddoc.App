@@ -34,16 +34,29 @@ namespace Meddoc.App.Forms
             this.PatientHistory.Text = this.entity.History;
             if (entity.AvatarBase64 != null)
                 this.Avatar.Source = Images.Load(this.entity.AvatarBase64);
+
+            var collection = Collection<PatientNote>.List(new MongoDB.Bson.BsonDocument("PatientId", patientEntity.Id));
+            foreach (var item in collection)
+            {
+                this.patientNotes.Children.Add(new Components.PatientNote(main, item, entity));
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            main.MainFrame.Content = new Patient(main, entity,true);
+            main.MainFrame.Content = new Patient(main, entity, true);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            NoteWindow window = new NoteWindow(main, Dto.NoteType.PatientNoteWindow, null, entity.Id);
+            if (window.ShowDialog().Value == true)
+                main.MainFrame.Content = new PatientsTable(main, entity);
+        }
 
+        void Button_Back(object sender, RoutedEventArgs e)
+        {
+            main.MainFrame.Content = new MyPatients(main);
         }
     }
 }

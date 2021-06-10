@@ -52,6 +52,7 @@ namespace Meddoc.App
         {
             Calendar calendar = (Calendar)sender;
             this.CurrentDate.Text = String.Format("{0:dd MMMM yyyy}", calendar.SelectedDate);
+            //TODO: Баг с 31 мая.
             DateTime selectedDate = calendar.SelectedDate.Value.Date;
             DateTime selectedDateNewDate = new DateTime(selectedDate.Year,selectedDate.Month, selectedDate.Day + 1);
             this.Receptions.Children.Clear();
@@ -64,7 +65,12 @@ namespace Meddoc.App
             {
                 this.Receptions.Children.Add(new Reception(main, item));
             }
-            this.PatientsCount.Text = "Сегодня " + collection.Count + " пациент(а)(ов)";
+            this.PatientsCount.Text = "В этот день" + collection.Count + " пациент(а)(ов)";
+        }
+
+        private void PART_HeaderButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

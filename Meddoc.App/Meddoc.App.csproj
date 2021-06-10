@@ -11,12 +11,15 @@
   <ItemGroup>
     <None Remove="Components\ArrowLeft.png" />
     <None Remove="Components\ArrowRight.png" />
+    <None Remove="Components\ArrowUp.png" />
     <None Remove="Components\delete.png" />
     <None Remove="Components\Ellipse 1.png" />
     <None Remove="Components\Group.png" />
     <None Remove="Components\Group1.png" />
+    <None Remove="Components\Left.png" />
     <None Remove="Components\Photo.png" />
-    <None Remove="Components\UpArrow.png" />
+    <None Remove="Components\Plus.png" />
+    <None Remove="Components\Right.png" />
     <None Remove="Components\Vector 4.png" />
     <None Remove="Components\Vector 5.png" />
     <None Remove="Components\Vector3.png" />
@@ -47,8 +50,11 @@
     <Resource Include="Components\ArrowRight.png" />
     <Resource Include="Components\delete.png" />
     <Resource Include="Components\Group.png" />
+    <Resource Include="Components\Left.png" />
     <Resource Include="Components\Photo.png" />
-    <Resource Include="Components\UpArrow.png" />
+    <Resource Include="Components\Plus.png" />
+    <Resource Include="Components\Right.png" />
+    <Resource Include="Assets\ArrowUp.png" />
     <Resource Include="Components\Vector 5.png" />
     <Resource Include="Components\Vector3.png" />
     <Resource Include="Components\Ellipse 1.png" />

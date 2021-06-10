@@ -77,5 +77,26 @@ namespace Meddoc.App
             image.EndInit();
             return image;
         }
+
+        void Button_Important_Click(object sender, RoutedEventArgs e)
+        {
+            Visibility visibility;
+
+            if (this.NotesScroll.Visibility == Visibility.Visible)
+            {
+                visibility = Visibility.Hidden;
+
+                this.Notes.Visibility = visibility;
+                this.NotesScroll.Visibility = visibility;
+                //this.importantArrow.Source = new BitmapImage(new Uri(@"/Assets/ArrowDown.png"));
+            }
+            else
+            {
+                visibility = Visibility.Visible;
+                this.Notes.Visibility = visibility;
+                this.NotesScroll.Visibility = visibility;
+                //this.importantArrow.Source = new BitmapImage(new Uri(@"/Assets/ArrowUp.png"));
+            }
+        }
     }
 }

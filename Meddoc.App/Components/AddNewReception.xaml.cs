@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Meddoc.App.Entity;
 using Meddoc.App.Helper;
 using MongoDB.Bson;
+using System.Globalization;
 
 namespace Meddoc.App
 {
@@ -23,7 +16,6 @@ namespace Meddoc.App
     {
         Main main;
         ReceptionEntity entity;
-        PatientEntity patientEntity;
         public AddNewReception()
         {
             InitializeComponent();
@@ -47,15 +39,15 @@ namespace Meddoc.App
             }
         }
 
-        public AddNewReception(Main main,ReceptionEntity entity)
+        public AddNewReception(Main main, ReceptionEntity entity)
         {
             InitializeComponent();
             this.main = main;
             this.entity = entity;
             this.MainText.Text = "Редактировать приём";
             this.MainButton.Content = "Сохранить";
-            this.Date.Textbox.Text = this.entity.Date.ToString();
-            this.Time.Textbox.Text = this.entity.Time.ToString();
+            this.Date.Textbox.Text = this.entity.Date.ToString("dd.MM.yyy");
+            this.Time.Textbox.Text = this.entity.Time.ToString("HH:mm");
             this.Description.Textbox.Text = this.entity.Info;
 
             var list = Collection<PatientEntity>.List(new BsonDocument());
@@ -72,8 +64,8 @@ namespace Meddoc.App
             ReceptionEntity receptionEntity = new ReceptionEntity
             {
                 PatientEntity = ((PatientEntity)this.Patient.SelectedItem).Id,
-                Date = DateTime.Parse(this.Date.Textbox.Text),
-                Time = DateTime.Parse(this.Time.Textbox.Text),
+                Date = DateTime.Parse(this.Date.Textbox.Text, CultureInfo.CurrentCulture, DateTimeStyles.AssumeUniversal),
+                Time = DateTime.Parse(this.Time.Textbox.Text, CultureInfo.CurrentCulture, DateTimeStyles.AssumeUniversal),
                 Info = this.Description.Textbox.Text
             };
 
@@ -87,7 +79,7 @@ namespace Meddoc.App
 
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            main.MainFrame.Content = new Patient(main,true);
+            main.MainFrame.Content = new Patient(main, true);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
