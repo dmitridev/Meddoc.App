@@ -32,7 +32,7 @@
 
                     <Border Background="#e2e2e2" >
                         <Button Click="Button_Click" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                            <Image x:Name="Image" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Components/Photo.png" />
+                            <Image x:Name="Image" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Assets/Photo.png" />
                         </Button>
                     </Border>
                 </Grid>

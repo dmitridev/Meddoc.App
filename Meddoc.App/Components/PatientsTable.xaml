@@ -45,7 +45,7 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <Image x:Name="Avatar" Margin="40px" Source="/Components/Photo.png"/>
+                    <Image x:Name="Avatar" Margin="40px" Source="/Assets/Photo.png"/>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>

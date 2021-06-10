@@ -120,7 +120,7 @@
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Width="40" x:Name="Logo" Stretch="None" Height="40" VerticalAlignment="Top" Source="/Components/Photo.png">
+                                    <Image Width="40" x:Name="Logo" Stretch="None" Height="40" VerticalAlignment="Top" Source="/Assets/Photo.png">
                                         <Image.Clip>
                                             <RectangleGeometry RadiusX="40" RadiusY="40" Rect="0,0,40,40"/>
                                         </Image.Clip>

@@ -107,10 +107,10 @@
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                             <Button Width="40" Height="40" Margin="0,0,10,0" Background="#1675E4" Click="Button_Click">
-                                                <Image Margin="5" Source="/Components/Vector3.png"/>
+                                                <Image Margin="5" Source="/Assets/Vector3.png"/>
                                             </Button>
                                             <Button Width="40" Height="40" Background="#E82833" Click="Button_Click_1">
-                                                <Image Margin="5"  Source="/Components/delete.png"/>
+                                                <Image Margin="5"  Source="/Assets/delete.png"/>
                                             </Button>
                                         </StackPanel>
                                     </DataTemplate>

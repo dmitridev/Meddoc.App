@@ -21,7 +21,7 @@
                         <Setter Property="BorderThickness" Value="0"/>
                     </Style>
                 </Button.Resources>
-                <Image Width="25" Source="/Components/delete.png"/>
+                <Image Width="25" Source="/Assets/delete.png"/>
             </Button>
             <Button DockPanel.Dock="Right" Background="#1675E4" Width="40" Margin="10,0" Height="40" VerticalAlignment="Top">
                 <Button.Resources>
@@ -30,7 +30,7 @@
                         <Setter Property="BorderThickness" Value="0"/>
                     </Style>
                 </Button.Resources>
-                <Image Width="25" Source="/Components/Vector3.png"/>
+                <Image Width="25" Source="/Assets/Vector3.png"/>
             </Button>
         </DockPanel>
         <Border Background="#1675E4" Grid.Row="1" CornerRadius="4">

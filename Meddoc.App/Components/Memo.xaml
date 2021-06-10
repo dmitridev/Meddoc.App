@@ -24,7 +24,7 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Width="36" Height="22">
-                <Image Source="/Components/Group.png"/>
+                <Image Source="/Assets/Group.png"/>
             </Grid>
             <Grid Grid.Column="1" Margin="20">
                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"

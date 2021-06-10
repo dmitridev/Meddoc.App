@@ -19,7 +19,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" >
-                <Image Width="400" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,120,0,120" Height="310" Source="/Components/Ellipse 1.png" x:Name="Logo">
+                <Image Width="400" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,120,0,120" Height="310" Source="/Assets/Ellipse 1.png" x:Name="Logo">
                     
                 </Image>
             </Grid>
@@ -82,7 +82,7 @@
 
         </Grid>
         
-        <Image Margin="1085,235,3,2" Source="/Components/Vector 4.png"/>
-        <Image Source="/Components/Vector 5.png" Margin="850,542,0,-95"/>
+        <Image Margin="1085,235,3,2" Source="/Assets/Vector 4.png"/>
+        <Image Source="/Assets/Vector 5.png" Margin="850,542,0,-95"/>
     </Grid>
 </Page>

@@ -274,7 +274,7 @@
                                                     <Rectangle Fill="#11E5EBF1" Opacity="1"/>
                                                     <Grid>
                                                         <Path x:Name="path" Fill="#1675E4" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"  Width="20" Height="20"/>
-                                                        <Image Source="/Components/Left.png"/>
+                                                        <Image Source="/Assets/Left.png"/>
                                                     </Grid>
                                                 </Grid>
                                             </ControlTemplate>
@@ -298,7 +298,7 @@
                                                     <Rectangle Fill="#11E5EBF1" Opacity="1" Stretch="Fill"/>
                                                     <Grid>
                                                         <Path x:Name="path" Fill="#1675E4" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Height="20"/>
-                                                        <Image Source="/Components/Right.png"/>
+                                                        <Image Source="/Assets/Right.png"/>
                                                     </Grid>
                                                 </Grid>
                                             </ControlTemplate>
@@ -433,7 +433,7 @@
                         <StackPanel>
                             <Button Margin="40,40" Background="#1675E4" Foreground="White" FontSize="26px" Height="88px" Click="Button_Click_1">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Width="25" Source="/Components/Plus.png" VerticalAlignment="Center" Margin="10,10"/>
+                                    <Image Width="25" Source="/Assets/Plus.png" VerticalAlignment="Center" Margin="10,10"/>
                                     <TextBlock Text="Добавить новый прием" VerticalAlignment="Center" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold">
                                         <TextBlock.Resources>
                                             <Style TargetType="Border">

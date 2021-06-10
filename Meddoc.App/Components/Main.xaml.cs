@@ -2,16 +2,10 @@
 using Meddoc.App.Forms;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Meddoc.App.Helper;
 using Meddoc.App.Components;
 using System.IO;
@@ -36,6 +30,9 @@ namespace Meddoc.App
             }
             if (Configuration.currentUser != null)
                 this.Logo.Source = LoadImage(Convert.FromBase64String(Configuration.currentUser.ImageBase64));
+
+            this.MainFrame.Content = new CalendarAndPatients(this);
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -35,10 +35,10 @@
                                     <Setter Property="CornerRadius" Value="4"/>
                                 </Style>
                             </Button.Resources>
-                            <Image Source="/Components/Vector3.png" Margin="8"/>
+                            <Image Source="/Assets/Vector3.png" Margin="8"/>
                         </Button>
                         <Button BorderThickness="0" Background="#E82833" Width="40" Height="40" HorizontalAlignment="Right" Click="Button_Click" VerticalAlignment="Center">
-                            <Image Source="/Components/delete.png" Margin="8"/>
+                            <Image Source="/Assets/delete.png" Margin="8"/>
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="4" />
