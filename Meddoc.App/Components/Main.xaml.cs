@@ -32,7 +32,12 @@ namespace Meddoc.App
                 this.Logo.Source = LoadImage(Convert.FromBase64String(Configuration.currentUser.ImageBase64));
 
             this.MainFrame.Content = new CalendarAndPatients(this);
-            
+            this.Search.Textbox.PreviewMouseDown += SearchInput;
+        }
+
+        private void SearchInput(object sender, MouseButtonEventArgs e)
+        {
+            this.MainFrame.Content = new MyPatients(this);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

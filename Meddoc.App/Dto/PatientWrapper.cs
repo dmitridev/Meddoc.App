@@ -6,7 +6,6 @@ namespace Meddoc.App.Dto
 {
     public class PatientWrapper
     {
-        
         public string Name { get; set; }
         public DateTime DateBirth { get; set; }
         public string Diagnoz { get; set; }

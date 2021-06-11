@@ -93,7 +93,8 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid Column="0" Margin="24,24,24,24">
-                    <TextBox BorderBrush="#e2e2e2" Background="#e2e2e2" x:Name="Search" Width="478"/>
+                    <Image Source="/Assets/Search.png" Width="26" HorizontalAlignment="Right" Margin="0,0,10,0" Opacity=".5" Panel.ZIndex="100"/>
+                    <components:CustomTextField x:Name="Search" PlaceHolderCornerRadius="6" PlaceHolder="Поиск..." FontSize="18" Panel.ZIndex="1"/>
                 </Grid>
                 <Grid Grid.Column="2" Margin="24,24,24,24" HorizontalAlignment="Right">
                     <Grid>
@@ -111,9 +112,9 @@
                     <Grid Grid.Column="1" Grid.Row="0">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="326" />
-                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -126,21 +127,19 @@
                                         </Image.Clip>
                                     </Image>
                                     <TextBlock Margin="10,0,0,0" x:Name="Login" MouseDown="TextBlock_MouseDown" FontSize="20" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Text="Не указано" VerticalAlignment="Center"/>
+                                    <Button Margin="10,0" Background="#e2e2e2" Width="40" Height="40" Click="Button_Click_3" BorderThickness="0">
+                                        <Image Width="20" Source="/Assets/Group1.png" />
+                                        <Button.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="4"/>
+                                            </Style>
+                                        </Button.Resources>
+                                        <Button.BitmapEffect>
+                                            <DropShadowBitmapEffect Color="Black" Opacity="0.45" Direction="-70" Softness=".5">
+                                            </DropShadowBitmapEffect>
+                                        </Button.BitmapEffect>
+                                    </Button>
                                 </StackPanel>
-                            </Grid>
-                            <Grid Grid.Column="2" Grid.Row="0">
-                                <Button Background="#e2e2e2" Width="40" Height="40" Click="Button_Click_3" BorderThickness="0">
-                                    <Image Width="20" Source="/Assets/Group1.png" />
-                                    <Button.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="4"/>
-                                        </Style>
-                                    </Button.Resources>
-                                    <Button.BitmapEffect>
-                                        <DropShadowBitmapEffect Color="Black" Opacity="0.45" Direction="-70" Softness=".5">
-                                        </DropShadowBitmapEffect>
-                                    </Button.BitmapEffect>
-                                </Button>
                             </Grid>
                         </Grid>
                     </Grid>
