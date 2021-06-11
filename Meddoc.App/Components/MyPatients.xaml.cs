@@ -25,7 +25,7 @@ namespace Meddoc.App.Forms
     {
         Main main;
 
-        ObservableCollection<PatientEntity> collection = new ObservableCollection<PatientEntity>();
+        public ObservableCollection<PatientEntity> collection = new ObservableCollection<PatientEntity>();
 
         public MyPatients()
         {

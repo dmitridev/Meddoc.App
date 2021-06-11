@@ -57,6 +57,7 @@
                 </Border.BorderBrush>
                 <StackPanel Margin="10px">
                     <DataGrid x:Name="Table" ItemsSource="{Binding collection}"
+                              CanUserAddRows="False"
                           Margin="10" 
                           BorderThickness="0" 
                           GridLinesVisibility="None" 

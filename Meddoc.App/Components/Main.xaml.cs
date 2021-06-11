@@ -49,26 +49,12 @@ namespace Meddoc.App
             }
 
             MyPatients patients = (MyPatients)this.MainFrame.Content;
-            var items = patients.Table.Items;
+            ListCollectionView collectionView = new ListCollectionView(patients.collection);
+            string value = this.Search.Textbox.Text;
 
-            var ObservableCollection = new ObservableCollection<PatientEntity>();
-            foreach (var item in items)
-            {
-                ObservableCollection.Add((PatientEntity)item);
-            }
+            collectionView.Filter = (obj) => ((PatientEntity)obj).LastName.Contains(value);
 
-            var sourceList = new CollectionViewSource() { Source = ObservableCollection };
-
-            ICollectionView itemsList = sourceList.View;
-
-            var filter = new Predicate<object>(item => ((PatientEntity)item).LastName.Contains(this.Search.Textbox.Text));
-
-            itemsList.Filter = filter;
-            
-
-            foreach (var item in itemsList)
-                patients.Table.Items.Add(item);
-
+            patients.Table.ItemsSource = collectionView;
         }
 
         private void SearchInput(object sender, MouseButtonEventArgs e)
