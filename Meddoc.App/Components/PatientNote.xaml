@@ -14,7 +14,7 @@
         <DockPanel Grid.Row="0" Margin="5" LastChildFill="False">
             <TextBlock Text="Дата:" FontSize="16" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Medium" DockPanel.Dock="Left"/>
             <TextBlock x:Name="Date" Text="12.08.2020" FontSize="16" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Medium" DockPanel.Dock="Left"/>
-            <Button DockPanel.Dock="Right" Background="#E82833"  Width="40" Height="40" VerticalAlignment="Top">
+            <Button DockPanel.Dock="Right" Click="Button_Click_3" Background="#E82833"  Width="40" Height="40" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="4"/>
@@ -23,7 +23,7 @@
                 </Button.Resources>
                 <Image Width="25" Source="/Assets/delete.png"/>
             </Button>
-            <Button DockPanel.Dock="Right" Background="#1675E4" Width="40" Margin="10,0" Height="40" VerticalAlignment="Top">
+            <Button DockPanel.Dock="Right" Click="Button_Click_2" Background="#1675E4" Width="40" Margin="10,0" Height="40" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="4"/>

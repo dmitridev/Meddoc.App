@@ -38,6 +38,7 @@ namespace Meddoc.App
                 var document = new BsonDocument("id", objectId);
                 patientNote = Collection<PatientNote>.Load(document);
             }
+            InitializeComponent();
         }
 
         public NoteWindow(Main main, NoteType type, object noteOrPatientNote, ObjectId patientId)

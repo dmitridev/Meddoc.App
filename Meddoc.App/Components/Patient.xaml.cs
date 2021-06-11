@@ -32,7 +32,7 @@ namespace Meddoc.App
             InitializeComponent();
         }
 
-        public Patient(Main main, PatientEntity entity,bool edit = false)
+        public Patient(Main main, PatientEntity entity, bool edit = false)
         {
             InitializeComponent();
             this.main = main;
@@ -43,7 +43,7 @@ namespace Meddoc.App
             this.DateBirth.Textbox.Text = entity.DateBirth.ToString("dd.MM.yyyy");
             this.History.Textbox.Text = entity.History;
             this.Diagnoz.Textbox.Text = entity.Diagnoz;
-            if(entity.AvatarBase64 != null)
+            if (entity.AvatarBase64 != null)
                 this.Image.Source = Images.Load(entity.AvatarBase64);
 
             if (edit)
@@ -92,6 +92,8 @@ namespace Meddoc.App
 
                 BitmapSource image = Images.Load(bytes);
                 string base64 = Images.ToBase64String(bytes);
+                if (entity == null)
+                    entity = new PatientEntity();
                 this.entity.AvatarBase64 = base64;
                 this.Image.Source = image;
                 this.Image.Width = 250;

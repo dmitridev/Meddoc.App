@@ -44,5 +44,19 @@ namespace Meddoc.App.Components
         {
 
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NoteWindow noteWindow = new NoteWindow(this.note.Id);
+            if (noteWindow.ShowDialog() == true)
+            {
+                main.MainFrame.Content = new PatientsTable(main, this.patientEntity);
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
