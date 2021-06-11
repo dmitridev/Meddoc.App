@@ -55,12 +55,14 @@
     <Resource Include="Assets\Left.png" />
     <Resource Include="Assets\Photo.png" />
     <Resource Include="Assets\Right.png" />
-    <Resource Include="Assets\ArrowUp.png" />
     <Resource Include="Assets\Vector 5.png" />
     <Resource Include="Assets\Vector3.png" />
     <Resource Include="Assets\Ellipse 1.png" />
     <Resource Include="Assets\Group1.png" />
     <Resource Include="Assets\Vector 4.png" />
+    <Resource Include="Assets\ArrowDown.png"/>
+    <Resource Include="Assets\ArrowUp.png"/>
+    <Resource Include="Assets\Search.png"/>
     <Resource Include="Fonts\Raleway-Black.ttf" />
     <Resource Include="Fonts\Raleway-BlackItalic.ttf" />
     <Resource Include="Fonts\Raleway-Bold.ttf" />

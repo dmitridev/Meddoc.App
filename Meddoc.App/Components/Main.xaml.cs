@@ -112,14 +112,14 @@ namespace Meddoc.App
 
                 this.Notes.Visibility = visibility;
                 this.NotesScroll.Visibility = visibility;
-                //this.importantArrow.Source = new BitmapImage(new Uri(@"/Assets/ArrowDown.png"));
+                this.importantArrow.Source = new BitmapImage(new Uri("/Assets/ArrowDown.png", UriKind.Relative));
             }
             else
             {
                 visibility = Visibility.Visible;
                 this.Notes.Visibility = visibility;
                 this.NotesScroll.Visibility = visibility;
-                //this.importantArrow.Source = new BitmapImage(new Uri(@"/Assets/ArrowUp.png"));
+                this.importantArrow.Source = new BitmapImage(new Uri("/Assets/ArrowUp.png", UriKind.Relative));
             }
         }
     }

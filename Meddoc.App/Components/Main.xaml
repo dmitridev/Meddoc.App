@@ -31,7 +31,7 @@
                     <Image Source="/Assets/logo.png" Width="54" Height="54"/>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0">
-                    <Label FontSize="26" Content="Meddoc" Height="50" Foreground="#1675e4"  />
+                    <Label FontSize="26" Content="Meddoc" Height="50" FontFamily="/Fonts/#Raleway Bold" Foreground="#1675e4"  />
                 </Grid>
             </Grid>
         </Grid>
@@ -67,7 +67,7 @@
                 <Grid Grid.Row="2" Grid.Column="0">
                     <Image Panel.ZIndex="12" Margin="0,0,326,0" Width="28px" Source="/Assets/Vector.png" />
                     <Button Background="White" BorderThickness="2" FontSize="20px" Click="Button_Important_Click">
-                        <TextBlock Text="Важное" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Foreground="#1675E4" Width="259" />
+                        <TextBlock Text="Важное" FontFamily="/Fonts/#Raleway SemiBold" Foreground="#1675E4" Width="259" />
                         <Button.BorderBrush>
                             <SolidColorBrush Color="#1675E4"/>
                         </Button.BorderBrush>

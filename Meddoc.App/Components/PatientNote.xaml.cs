@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using Meddoc.App.Forms;
 using MongoDB.Bson;
+using Meddoc.App.Helper;
 
 namespace Meddoc.App.Components
 {
@@ -56,7 +57,11 @@ namespace Meddoc.App.Components
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            DeleteObj deleteObj = new DeleteObj();
+            if(deleteObj.ShowDialog().Value)
+            {
+                Collection<Entity.PatientNote>.Del(this.note);
+            }
         }
     }
 }

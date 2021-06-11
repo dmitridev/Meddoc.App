@@ -11,7 +11,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" Margin="5" LastChildFill="False">
+        <DockPanel Grid.Row="0" LastChildFill="False">
             <TextBlock Text="Дата:" FontSize="16" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Medium" DockPanel.Dock="Left"/>
             <TextBlock x:Name="Date" Text="12.08.2020" FontSize="16" FontFamily="/Fonts/Raleway-Medium.ttf #Raleway Medium" DockPanel.Dock="Left"/>
             <Button DockPanel.Dock="Right" Click="Button_Click_3" Background="#E82833"  Width="40" Height="40" VerticalAlignment="Top">
