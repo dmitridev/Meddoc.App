@@ -50,7 +50,7 @@ namespace Meddoc.App.Forms
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             NoteWindow window = new NoteWindow(main, Dto.NoteType.PatientNoteWindow, null, entity.Id);
-            if (window.ShowDialog().Value == true)
+            if (window.ShowDialog().Value)
                 main.MainFrame.Content = new PatientsTable(main, entity);
         }
 

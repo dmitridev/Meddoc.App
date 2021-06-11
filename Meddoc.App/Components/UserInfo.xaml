@@ -20,7 +20,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" >
                 <Image Width="400" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,120,0,120" Height="310" Source="/Assets/Ellipse 1.png" x:Name="Logo">
-                    
+                     
                 </Image>
             </Grid>
             <Grid Grid.Column="1" Margin="0,140,0,0">
@@ -81,8 +81,10 @@
             </Grid>
 
         </Grid>
-        
-        <Image Margin="1085,235,3,2" Source="/Assets/Vector 4.png"/>
+        <TextBlock Text="Количество пациентов стоящих на учёте" Margin="60,500,100,100" FontSize="32" FontFamily="/Fonts/#Raleway Bold" Panel.ZIndex="500"/>
+        <TextBlock x:Name="Count" Text="47" FontSize="100" FontFamily="/Fonts/#Raleway Black" Foreground="#1675E4" Margin="50,572,0,0"/>
+        <Image Source="/Components/CountPacients.png" Width="150" Margin="96,235,1293,-18"/>
+        <Image Margin="1085,235,0,0" Source="/Assets/Vector 4.png"/>
         <Image Source="/Assets/Vector 5.png" Margin="850,542,0,-95"/>
     </Grid>
 </Page>

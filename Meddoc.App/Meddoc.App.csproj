@@ -14,6 +14,7 @@
     <None Remove="Components\ArrowLeft.png" />
     <None Remove="Components\ArrowRight.png" />
     <None Remove="Components\ArrowUp.png" />
+    <None Remove="Components\CountPacients.png" />
     <None Remove="Components\delete.png" />
     <None Remove="Components\Ellipse 1.png" />
     <None Remove="Components\Group.png" />
@@ -60,9 +61,10 @@
     <Resource Include="Assets\Ellipse 1.png" />
     <Resource Include="Assets\Group1.png" />
     <Resource Include="Assets\Vector 4.png" />
-    <Resource Include="Assets\ArrowDown.png"/>
-    <Resource Include="Assets\ArrowUp.png"/>
-    <Resource Include="Assets\Search.png"/>
+    <Resource Include="Assets\ArrowDown.png" />
+    <Resource Include="Assets\ArrowUp.png" />
+    <Resource Include="Assets\Search.png" />
+    <Resource Include="Components\CountPacients.png" />
     <Resource Include="Fonts\Raleway-Black.ttf" />
     <Resource Include="Fonts\Raleway-BlackItalic.ttf" />
     <Resource Include="Fonts\Raleway-Bold.ttf" />

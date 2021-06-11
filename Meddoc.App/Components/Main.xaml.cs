@@ -34,7 +34,7 @@ namespace Meddoc.App
                 this.Login.Text = Configuration.currentUser.FirstName + " " + Configuration.currentUser.MiddleName + " " + Configuration.currentUser.LastName + " ";
             }
             if (Configuration.currentUser != null)
-                this.Logo.Source = LoadImage(Convert.FromBase64String(Configuration.currentUser.ImageBase64));
+                this.Logo.Source = Images.Load(Configuration.currentUser.ImageBase64);
 
             this.MainFrame.Content = new CalendarAndPatients(this);
             this.Search.Textbox.PreviewMouseDown += SearchInput;
@@ -90,16 +90,6 @@ namespace Meddoc.App
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.MainFrame.Content = new UserInfo(this);
-        }
-
-        private BitmapSource LoadImage(byte[] bytes)
-        {
-            MemoryStream byteStream = new MemoryStream(bytes);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = byteStream;
-            image.EndInit();
-            return image;
         }
 
         void Button_Important_Click(object sender, RoutedEventArgs e)

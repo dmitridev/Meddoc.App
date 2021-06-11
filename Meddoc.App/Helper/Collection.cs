@@ -114,5 +114,13 @@ namespace Meddoc.App.Helper
                 //Log error;
             }
         }
+
+        public static long Count()
+        {
+            MongoClient client = new MongoClient(Configuration.Connection);
+            var db = client.GetDatabase("meddoc");
+            string name = new T().GetCollectionName();
+            return db.GetCollection<T>(name).EstimatedDocumentCount();
+        }
     }
 }

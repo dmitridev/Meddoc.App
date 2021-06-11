@@ -4,6 +4,7 @@ using MongoDB.Bson;
 using System;
 using System.Windows;
 using Meddoc.App.Dto;
+using System.Globalization;
 
 namespace Meddoc.App
 {
@@ -18,27 +19,19 @@ namespace Meddoc.App
         public ObjectId patientId;
         NoteType noteType;
 
-        public NoteWindow(long id)
+        public NoteWindow(Main main, ObjectId objectId)
         {
-            InitializeComponent();
-            if (id != 0)
-            {
-                note = Collection<Note>.Load(id);
-            }
-            else
-            {
-                note = new Note();
-            }
-        }
+            this.main = main;
 
-        public NoteWindow(ObjectId objectId)
-        {
             if (objectId != null)
             {
-                var document = new BsonDocument("id", objectId);
+                var document = new BsonDocument("_id", objectId);
                 patientNote = Collection<PatientNote>.Load(document);
             }
             InitializeComponent();
+            this.NoteDate.Text = patientNote.dateCreate.ToString("dd.MM.yyyy", CultureInfo.CurrentCulture);
+            this.NoteText.Text = patientNote.Text;
+            patientId = patientNote.PatientId;
         }
 
         public NoteWindow(Main main, NoteType type, object noteOrPatientNote, ObjectId patientId)
@@ -54,6 +47,9 @@ namespace Meddoc.App
                 {
                     var document = new BsonDocument("id", ((Note)noteOrPatientNote).Id);
                     note = Collection<Note>.Load(document);
+                    this.NoteDate.Text = note.dateCreate.ToString("HH:mm", CultureInfo.CurrentCulture);
+                    this.NoteText.Text = note.Text;
+
                 }
                 else note = new Note();
             }
@@ -72,6 +68,7 @@ namespace Meddoc.App
 
         public void ClickCancel(object sender, RoutedEventArgs e)
         {
+            DialogResult = false;
             this.Close();
         }
 
@@ -94,12 +91,13 @@ namespace Meddoc.App
                 if (patientNote.Id == ObjectId.Empty)
                     patientNote.Id = ObjectId.GenerateNewId();
 
-                patientNote.Text = this.NoteTitle.Text;
+                patientNote.Text = this.NoteText.Text;
                 patientNote.dateCreate = DateTime.Now;
                 patientNote.PatientId = patientId;
 
                 Collection<PatientNote>.Save(patientNote);
             }
+            DialogResult = true;
             this.Close();
         }
 

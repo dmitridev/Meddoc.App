@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using Meddoc.App.Forms;
 using MongoDB.Bson;
 using Meddoc.App.Helper;
+using System.Globalization;
 
 namespace Meddoc.App.Components
 {
@@ -25,7 +26,7 @@ namespace Meddoc.App.Components
             this.note = note;
             this.patientEntity = patientEntity;
             InitializeComponent();
-            this.Date.Text = note.dateCreate.ToString("dd.MM.yyyy");
+            this.Date.Text = note.dateCreate.ToString("dd.MM.yyyy", CultureInfo.CurrentCulture);
             this.Text.Text = note.Text;
             this.Width = 374;
             this.Height = 210;
@@ -48,8 +49,8 @@ namespace Meddoc.App.Components
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            NoteWindow noteWindow = new NoteWindow(this.note.Id);
-            if (noteWindow.ShowDialog() == true)
+            NoteWindow noteWindow = new NoteWindow(main, this.note.Id);
+            if (noteWindow.ShowDialog().Value)
             {
                 main.MainFrame.Content = new PatientsTable(main, this.patientEntity);
             }
@@ -58,9 +59,10 @@ namespace Meddoc.App.Components
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             DeleteObj deleteObj = new DeleteObj();
-            if(deleteObj.ShowDialog().Value)
+            if (deleteObj.ShowDialog().Value)
             {
                 Collection<Entity.PatientNote>.Del(this.note);
+                main.MainFrame.Content = new PatientsTable(main, this.patientEntity);
             }
         }
     }

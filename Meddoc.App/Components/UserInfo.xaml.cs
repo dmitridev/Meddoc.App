@@ -39,6 +39,8 @@ namespace Meddoc.App.Forms
             this.Name.Text = user.LastName + " " + user.FirstName + " " + user.MiddleName;
             if (user.ImageBase64 != null)
                 this.Logo.Source = Images.Load(user.ImageBase64);
+
+            this.Count.Text = Collection<PatientEntity>.Count().ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
