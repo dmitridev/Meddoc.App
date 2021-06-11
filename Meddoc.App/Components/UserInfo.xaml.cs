@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Meddoc.App.Entity;
 using Meddoc.App.Helper;
+using System.Globalization;
 
 namespace Meddoc.App.Forms
 {
@@ -34,7 +35,7 @@ namespace Meddoc.App.Forms
             this.main = main;
             User user = Configuration.currentUser;
             this.Work.Text = user.Work;
-            this.DateBirth.Text = user.DateBirth.ToString("dd.MM.yyyy");
+            this.DateBirth.Text = user.DateBirth.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture);
             this.Name.Text = user.LastName + " " + user.FirstName + " " + user.MiddleName;
             if (user.ImageBase64 != null)
                 this.Logo.Source = Images.Load(user.ImageBase64);
