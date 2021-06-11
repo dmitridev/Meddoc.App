@@ -11,9 +11,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MongoDB.Bson;
-using Meddoc.App.Helper;
+using DB = Meddoc.App.Helper;
 using Meddoc.App.Entity;
 using Meddoc.App.Components;
+using System.Collections.ObjectModel;
 
 namespace Meddoc.App.Forms
 {
@@ -23,29 +24,33 @@ namespace Meddoc.App.Forms
     public partial class MyPatients : Page
     {
         Main main;
+
+        ObservableCollection<PatientEntity> collection = new ObservableCollection<PatientEntity>();
+
         public MyPatients()
         {
             InitializeComponent();
-            LoadPatients();
+            collection = LoadPatients();
         }
 
         public MyPatients(Main main)
         {
             InitializeComponent();
-            LoadPatients();
+            collection = LoadPatients();
+            this.Table.ItemsSource = collection;
             this.main = main;
             DataContext = this;
         }
 
-        private void LoadPatients()
+        ObservableCollection<PatientEntity> LoadPatients()
         {
+            ObservableCollection<PatientEntity> ret = new ObservableCollection<PatientEntity>();
 
-            var list = Collection<PatientEntity>.List(new BsonDocument());
+            var list = DB.Collection<PatientEntity>.List(new BsonDocument());
             foreach (var item in list)
-            {
-                this.Table.Items.Add(item);
-            }
+                ret.Add(item);
 
+            return ret;
         }
 
         public void Add_Patient(object sender, RoutedEventArgs e)
@@ -78,7 +83,7 @@ namespace Meddoc.App.Forms
             if (result.Value)
             {
                 PatientEntity patientEntity = (PatientEntity)this.Table.SelectedItem;
-                Collection<PatientEntity>.Del(patientEntity);
+                DB.Collection<PatientEntity>.Del(patientEntity);
             }
             main.MainFrame.Content = new MyPatients(main);
         }

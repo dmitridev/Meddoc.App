@@ -9,6 +9,11 @@ using System.Windows.Media.Imaging;
 using Meddoc.App.Helper;
 using Meddoc.App.Components;
 using System.IO;
+using System.ComponentModel;
+using System.Windows.Data;
+using System.Collections.ObjectModel;
+using DB = Meddoc.App.Helper;
+using System.Linq;
 
 namespace Meddoc.App
 {
@@ -20,7 +25,7 @@ namespace Meddoc.App
         public Main()
         {
             InitializeComponent();
-            List<Note> notes = Collection<Note>.List(new MongoDB.Bson.BsonDocument());
+            List<Note> notes = DB.Collection<Note>.List(new MongoDB.Bson.BsonDocument());
             notes.ForEach(note => this.Notes.Children.Add(new Memo(note)));
             if (Configuration.currentUser.FirstName == null && Configuration.currentUser.LastName == null)
                 this.Login.Text = Configuration.currentUser?.Login;
@@ -33,6 +38,37 @@ namespace Meddoc.App
 
             this.MainFrame.Content = new CalendarAndPatients(this);
             this.Search.Textbox.PreviewMouseDown += SearchInput;
+            this.Search.Textbox.TextChanged += SearchInputTextChanged;
+        }
+
+        private void SearchInputTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!(this.MainFrame.Content is MyPatients))
+            {
+                this.MainFrame.Content = new MyPatients(this);
+            }
+
+            MyPatients patients = (MyPatients)this.MainFrame.Content;
+            var items = patients.Table.Items;
+
+            var ObservableCollection = new ObservableCollection<PatientEntity>();
+            foreach (var item in items)
+            {
+                ObservableCollection.Add((PatientEntity)item);
+            }
+
+            var sourceList = new CollectionViewSource() { Source = ObservableCollection };
+
+            ICollectionView itemsList = sourceList.View;
+
+            var filter = new Predicate<object>(item => ((PatientEntity)item).LastName.Contains(this.Search.Textbox.Text));
+
+            itemsList.Filter = filter;
+            
+
+            foreach (var item in itemsList)
+                patients.Table.Items.Add(item);
+
         }
 
         private void SearchInput(object sender, MouseButtonEventArgs e)

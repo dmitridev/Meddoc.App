@@ -56,12 +56,13 @@
                     <SolidColorBrush Color="Black" Opacity="0.15"></SolidColorBrush>
                 </Border.BorderBrush>
                 <StackPanel Margin="10px">
-                    <DataGrid x:Name="Table" 
+                    <DataGrid x:Name="Table" ItemsSource="{Binding collection}"
                           Margin="10" 
                           BorderThickness="0" 
                           GridLinesVisibility="None" 
                           ColumnHeaderHeight="80"
                           HeadersVisibility="Column"
+                              AutoGenerateColumns="False"
                           >
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="2*" 
