@@ -12,11 +12,12 @@ namespace Meddoc.App.Helper
 
         public static async Task<T> Load(BsonDocument document)
         {
+            if (Configuration.currentUser != null)
+                document.Add("userId", Configuration.currentUser.Id);
             MongoClient client = new MongoClient(Configuration.Connection);
             var db = client.GetDatabase("meddoc");
             string res = new T().GetCollectionName();
             var mongoCollection = db.GetCollection<T>(res);
-
             return await mongoCollection.Find(document).FirstOrDefaultAsync();
         }
 
@@ -24,6 +25,7 @@ namespace Meddoc.App.Helper
         public static void Save(T @object)
         {
             MongoClient client = new MongoClient(Configuration.Connection);
+            @object.userId = Configuration.currentUser.Id;
             var db = client.GetDatabase("meddoc");
             if (Configuration.currentUser != null)
                 @object.userId = Configuration.currentUser.Id;
@@ -54,7 +56,7 @@ namespace Meddoc.App.Helper
             var db = client.GetDatabase("meddoc");
             var res = new T().GetCollectionName();
             var mongoCollection = db.GetCollection<T>(res);
-            return await mongoCollection.FindAsync(template);                                                            
+            return await mongoCollection.FindAsync(template);
         }
 
         public static List<T> List(FilterDefinition<T> definition)

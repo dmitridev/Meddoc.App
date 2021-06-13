@@ -74,7 +74,8 @@ namespace Meddoc.App
 
             var filterByNow = Builders<ReceptionEntity>.Filter.Gte(r => r.Time, selectedDate);
             var filterByDayPlusOne = Builders<ReceptionEntity>.Filter.Lte(r => r.Time, selectedDateNewDate);
-            var filter = Builders<ReceptionEntity>.Filter.And(filterByNow, filterByDayPlusOne);
+            var filterByUserId = Builders<ReceptionEntity>.Filter.Eq(r => r.userId, Configuration.currentUser.Id);
+            var filter = Builders<ReceptionEntity>.Filter.And(filterByNow, filterByDayPlusOne, filterByUserId);
             var collection = Collection<ReceptionEntity>.List(filter);
             foreach (var item in collection)
             {
@@ -98,7 +99,7 @@ namespace Meddoc.App
             var filter = Builders<ReceptionEntity>.Filter.And(filterByMonth, filterByNextMonth);
             var collection = Collection<ReceptionEntity>.List(filter);
             var listDays = collection.Select(item => item.Date.Day).Distinct().ToList();
-            
+
             listDays.ForEach(day =>
             {
                 var year = calendar.SelectedDate.Value.Year;
