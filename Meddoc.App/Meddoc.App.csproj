@@ -66,6 +66,7 @@
     <Resource Include="Assets\ArrowUp.png" />
     <Resource Include="Assets\Search.png" />
     <Resource Include="Components\CountPacients.png" />
+    <Resource Include="Fonts\Password.ttf"/>
     <Resource Include="Fonts\Raleway-Black.ttf" />
     <Resource Include="Fonts\Raleway-BlackItalic.ttf" />
     <Resource Include="Fonts\Raleway-Bold.ttf" />

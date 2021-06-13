@@ -21,6 +21,7 @@
                        TextWrapping="Wrap" 
                        x:Name="Placeholder" 
                        IsHitTestVisible="False"
+                       FontFamily="/Fonts/#Raleway Bold"
                        Text="{Binding PlaceHolder}">
                 <TextBlock.Foreground>
                     <SolidColorBrush Color="#1D1D1D" Opacity="0.25" />
