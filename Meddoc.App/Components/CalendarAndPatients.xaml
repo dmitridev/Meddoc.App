@@ -215,7 +215,7 @@
                             <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"/>
                             <Rectangle x:Name="HighlightBackground" Fill="#FFBADDE9" Opacity="0" RadiusX="1" RadiusY="1"/>
                             <ContentPresenter x:Name="NormalText" TextElement.Foreground="#FF333333" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="5,1,5,1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Path x:Name="Blackout" Data="M8.1772461,11.029181 L10.433105,11.029181 L11.700684,12.801641 L12.973633,11.029181 L15.191895,11.029181 L12.844727,13.999395 L15.21875,17.060919 L12.962891,17.060919 L11.673828,15.256231 L10.352539,17.060919 L8.1396484,17.060919 L10.519043,14.042364 z" Fill="#FF000000" HorizontalAlignment="Stretch" Margin="3" Opacity="0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Stretch"/>
+                            <Path x:Name="Blackout" Data="M8,2 L10,2 L10,0 L8,0" Fill="#1675E4" HorizontalAlignment="Stretch" Margin="15,0,15,25" Opacity="0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" VerticalAlignment="Stretch"/>
                             <Rectangle x:Name="DayButtonFocusVisual" IsHitTestVisible="false" RadiusX="1" RadiusY="1" Stroke="#FF45D6FA" Visibility="Collapsed"/>
                         </Grid>
                     </ControlTemplate>
@@ -426,7 +426,9 @@
                     </Grid>
                     <Grid Margin="40,10" Grid.Row="1">
                         <Border>
-                            <Calendar x:Name="CalendarItem" Style="{DynamicResource CalendarStyleMain}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStylMain}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleMain}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleMain}" Calendar.SelectedDatesChanged="Calendar_SelectedDatesChanged"/>
+                            <Calendar x:Name="CalendarItem" Style="{DynamicResource CalendarStyleMain}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStylMain}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleMain}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleMain}" Calendar.SelectedDatesChanged="Calendar_SelectedDatesChanged">
+                            </Calendar>
+
                         </Border>
                     </Grid>
                     <Grid Grid.Row="2">

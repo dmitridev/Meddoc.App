@@ -78,7 +78,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Height="88px" Background="#e2e2e2" Foreground="#1675E4" FontSize="24px" Content="Назад" Margin="40,20,0,0">
+                        <Button Height="88px" Background="#e2e2e2" Foreground="#1675E4" Click="Button_Click_1" FontSize="24px" Content="Назад" Margin="40,20,0,0">
                             <Button.BorderBrush>
                                 <SolidColorBrush Color="#1675E4"/>
                             </Button.BorderBrush>

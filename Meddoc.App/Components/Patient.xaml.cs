@@ -99,5 +99,10 @@ namespace Meddoc.App
                 this.Image.Width = 250;
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
     }
 }

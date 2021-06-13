@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using Meddoc.App.Entity;
 using Meddoc.App.Helper;
+using System.Globalization;
 
 namespace Meddoc.App.Forms
 {
@@ -30,7 +31,7 @@ namespace Meddoc.App.Forms
             this.entity = patientEntity;
             this.PatientName.Text = this.entity.LastName + " " + this.entity.Name + " " + this.entity.MiddleName;
             this.Diagnoz.Text = "Диагноз: " + this.entity.Diagnoz;
-            this.DateBirth.Text = "Дата рождения:" + this.entity.DateBirth.ToString();
+            this.DateBirth.Text = "Дата рождения:" + this.entity.DateBirth.ToString("dd.MM.yyyy",CultureInfo.CurrentCulture);
             this.PatientHistory.Text = this.entity.History;
             if (entity.AvatarBase64 != null)
                 this.Avatar.Source = Images.Load(this.entity.AvatarBase64);

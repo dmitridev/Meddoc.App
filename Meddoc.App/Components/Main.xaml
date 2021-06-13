@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Meddoc.App" xmlns:components="clr-namespace:Meddoc.App.Components"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
       mc:Ignorable="d" 
       Background="White"
       d:DesignHeight="1080" d:DesignWidth="1920"
@@ -72,7 +73,8 @@
                             <SolidColorBrush Color="#1675E4"/>
                         </Button.BorderBrush>
                     </Button>
-                    <Image x:Name="importantArrow" Width="28" Height="28" Margin="0,0,20,0" Source="/Assets/ArrowDown.png" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <fa:ImageAwesome Panel.ZIndex="200" Foreground="#1675E4" Visibility="Hidden" Spin="True" SpinDuration="1" x:Name="Loader" Icon="Refresh" HorizontalAlignment="Right" VerticalAlignment="Center" Width="28" Margin="0,0,20,0"/>
+                    <Image x:Name="importantArrow" Panel.ZIndex="100" Width="28" Height="28" Margin="0,0,20,0" Source="/Assets/ArrowDown.png" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 </Grid>
                 <Grid Grid.Row="3" Grid.Column="0">
                     <ScrollViewer x:Name="NotesScroll" Visibility="Hidden">
@@ -121,7 +123,7 @@
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Width="40" x:Name="Logo" Stretch="None" Height="40" VerticalAlignment="Top" Source="/Assets/Photo.png">
+                                    <Image Width="40" x:Name="Logo" Stretch="UniformToFill" Height="40" VerticalAlignment="Top" Source="/Assets/Photo.png">
                                         <Image.Clip>
                                             <RectangleGeometry RadiusX="40" RadiusY="40" Rect="0,0,40,40"/>
                                         </Image.Clip>

@@ -3,39 +3,30 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Meddoc.App.Helper
 {
     public static class Collection<T> where T : BaseEntity, new()
     {
-        public static T Load(long id = 0)
-        {
-            MongoClient client = new MongoClient(Configuration.Connection);
-            var db = client.GetDatabase("meddoc");
-            string res = new T().GetCollectionName();
-            var mongoCollection = db.GetCollection<T>(res);
-            var document = new BsonDocument
-            {
-                {"id",id },
-                {"userId",Configuration.currentUser.Id }
-            };
-            return mongoCollection.Find(document).FirstOrDefault();
-        }
 
-        public static T Load(BsonDocument document)
+        public static async Task<T> Load(BsonDocument document)
         {
             MongoClient client = new MongoClient(Configuration.Connection);
             var db = client.GetDatabase("meddoc");
             string res = new T().GetCollectionName();
             var mongoCollection = db.GetCollection<T>(res);
 
-            return mongoCollection.Find(document).FirstOrDefault();
+            return await mongoCollection.Find(document).FirstOrDefaultAsync();
         }
+
+
         public static void Save(T @object)
         {
             MongoClient client = new MongoClient(Configuration.Connection);
             var db = client.GetDatabase("meddoc");
-            @object.userId = Configuration.currentUser.Id;
+            if (Configuration.currentUser != null)
+                @object.userId = Configuration.currentUser.Id;
             var mongoCollection = db.GetCollection<T>(@object.GetCollectionName());
             var filter = Builders<T>.Filter.Eq(s => s.Id, @object.Id);
 
@@ -48,38 +39,22 @@ namespace Meddoc.App.Helper
 
         public static List<T> List(BsonDocument template)
         {
-            try
-            {
-                var client = new MongoClient(Configuration.Connection);
-                var db = client.GetDatabase("meddoc");
-                var res = new T().GetCollectionName();
-                var mongoCollection = db.GetCollection<T>(res);
-                return mongoCollection.Find(template).ToList<T>();
-            }
-            catch
-            {
-
-            }
-
-            return new List<T>();
+            template.Add("userId", Configuration.currentUser.Id);
+            var client = new MongoClient(Configuration.Connection);
+            var db = client.GetDatabase("meddoc");
+            var res = new T().GetCollectionName();
+            var mongoCollection = db.GetCollection<T>(res);
+            return mongoCollection.Find(template).ToList<T>();
         }
 
-        public static List<T> List(BsonDocument[] array)
+        public static async Task<IAsyncCursor<T>> ListAsync(BsonDocument template)
         {
-            try
-            {
-                var client = new MongoClient(Configuration.Connection);
-                var db = client.GetDatabase("meddoc");
-                var res = new T().GetCollectionName();
-                var mongoCollection = db.GetCollection<T>(res).Aggregate<T>(array);
-                return mongoCollection.ToList<T>();
-            }
-            catch
-            {
-
-            }
-
-            return new List<T>();
+            template.Add("userId", Configuration.currentUser.Id);
+            var client = new MongoClient(Configuration.Connection);
+            var db = client.GetDatabase("meddoc");
+            var res = new T().GetCollectionName();
+            var mongoCollection = db.GetCollection<T>(res);
+            return await mongoCollection.FindAsync(template);                                                            
         }
 
         public static List<T> List(FilterDefinition<T> definition)
@@ -92,9 +67,9 @@ namespace Meddoc.App.Helper
                 var mongoCollection = db.GetCollection<T>(res);
                 return mongoCollection.Find(definition).ToList<T>();
             }
-            catch
+            catch (Exception e)
             {
-
+                System.Console.WriteLine(e.Message);
             }
 
             return new List<T>();
@@ -109,18 +84,19 @@ namespace Meddoc.App.Helper
             try
             {
                 db.GetCollection<T>(name).FindOneAndDelete<T>(filter);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 //Log error;
             }
         }
 
-        public static long Count()
+        public static long Count(BsonDocument template)
         {
             MongoClient client = new MongoClient(Configuration.Connection);
             var db = client.GetDatabase("meddoc");
             string name = new T().GetCollectionName();
-            return db.GetCollection<T>(name).EstimatedDocumentCount();
+            return db.GetCollection<T>(name).Find(template).CountDocuments();
         }
     }
 }

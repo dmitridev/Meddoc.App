@@ -4,6 +4,7 @@ using Meddoc.App.Helper;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,10 +37,14 @@ namespace Meddoc.App.Components
                 {"_id",this.entity.PatientEntity }
             };
 
-            var item = Collection<PatientEntity>.Load(document);
 
-            this.Name.Text = item?.Name + " " + item?.LastName;
-            this.Description.Text = this.entity.Info;
+            TaskAwaiter<PatientEntity> awaiter = Collection<PatientEntity>.Load(document).GetAwaiter();
+            awaiter.OnCompleted(() =>
+            {
+                PatientEntity item = awaiter.GetResult();
+                this.Name.Text = item?.Name + " " + item?.LastName;
+                this.Description.Text = this.entity.Info;
+            });
         }
 
         private void Name_MouseDown(object sender, MouseButtonEventArgs e)

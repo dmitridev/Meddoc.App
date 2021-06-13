@@ -14,6 +14,9 @@ using System.Windows.Data;
 using System.Collections.ObjectModel;
 using DB = Meddoc.App.Helper;
 using System.Linq;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using System.Threading.Tasks;
 
 namespace Meddoc.App
 {
@@ -22,23 +25,28 @@ namespace Meddoc.App
     /// </summary>
     public partial class Main : Page
     {
+
+        List<Note> notes;
+
         public Main()
         {
             InitializeComponent();
-            List<Note> notes = DB.Collection<Note>.List(new MongoDB.Bson.BsonDocument());
-            notes.ForEach(note => this.Notes.Children.Add(new Memo(note)));
+
+
             if (Configuration.currentUser.FirstName == null && Configuration.currentUser.LastName == null)
                 this.Login.Text = Configuration.currentUser?.Login;
             else
             {
                 this.Login.Text = Configuration.currentUser.FirstName + " " + Configuration.currentUser.MiddleName + " " + Configuration.currentUser.LastName + " ";
             }
-            if (Configuration.currentUser != null)
-                this.Logo.Source = Images.Load(Configuration.currentUser.ImageBase64);
+            if (Configuration.currentUser != null && Configuration.currentUser.ImageBase64 != null)
+                this.Logo.Source = Images.Load(Configuration.currentUser?.ImageBase64);
 
             this.MainFrame.Content = new CalendarAndPatients(this);
             this.Search.Textbox.PreviewMouseDown += SearchInput;
             this.Search.Textbox.TextChanged += SearchInputTextChanged;
+
+
         }
 
         private void SearchInputTextChanged(object sender, TextChangedEventArgs e)
@@ -92,7 +100,7 @@ namespace Meddoc.App
             this.MainFrame.Content = new UserInfo(this);
         }
 
-        void Button_Important_Click(object sender, RoutedEventArgs e)
+        async void Button_Important_Click(object sender, RoutedEventArgs e)
         {
             Visibility visibility;
 
@@ -107,9 +115,32 @@ namespace Meddoc.App
             else
             {
                 visibility = Visibility.Visible;
+
                 this.Notes.Visibility = visibility;
                 this.NotesScroll.Visibility = visibility;
+                if (this.Notes.Children.Count == 0)
+                {
+                    await GetNotes();
+                }
                 this.importantArrow.Source = new BitmapImage(new Uri("/Assets/ArrowUp.png", UriKind.Relative));
+            }
+        }
+
+        public async Task GetNotes()
+        {
+            try
+            {
+                this.importantArrow.Visibility = Visibility.Hidden;
+                this.Loader.Visibility = Visibility.Visible;
+
+                var list = await DB.Collection<Note>.ListAsync(new BsonDocument());
+                this.Notes.Children.Clear();
+                list.ToList().ForEach(note => this.Notes.Children.Add(new Memo(note)));
+                this.Loader.Visibility = Visibility.Hidden;
+                this.importantArrow.Visibility = Visibility.Visible;
+            }catch(Exception exception)
+            {
+
             }
         }
     }

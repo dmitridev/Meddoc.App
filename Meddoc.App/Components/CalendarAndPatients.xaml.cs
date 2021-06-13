@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Linq;
 
 namespace Meddoc.App
 {
@@ -34,12 +35,12 @@ namespace Meddoc.App
             GetCurrentDatePatients(this.CalendarItem);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             NoteWindow note = new NoteWindow(main, Dto.NoteType.NoteWindow, null, new ObjectId());
             if (note.ShowDialog().Value == true)
             {
-                this.NavigationService.Navigate(new Main());
+                await main.GetNotes();
             }
         }
 
@@ -67,7 +68,6 @@ namespace Meddoc.App
         void GetCurrentDatePatients(Calendar calendar)
         {
             this.CurrentDate.Text = String.Format("{0:dd MMMM yyyy}", calendar.SelectedDate);
-            //TODO: Баг с 31 мая.
             DateTime selectedDate = calendar.SelectedDate.Value.Date;
             DateTime selectedDateNewDate = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day + 1);
             this.Receptions.Children.Clear();
@@ -78,9 +78,35 @@ namespace Meddoc.App
             var collection = Collection<ReceptionEntity>.List(filter);
             foreach (var item in collection)
             {
-                this.Receptions.Children.Add(new Reception(main, item));
+                var reception = new Reception(main, item);
+                this.Receptions.Children.Add(reception);
             }
             this.PatientsCount.Text = "В этот день" + collection.Count + " пациент(а)(ов)";
         }
+
+        void SetBlackOutDates(Calendar calendar)
+        {
+            // найти все записи за месяц.
+            // и проставить все Selected даты
+
+
+            var dateTimeCurrentMonth = new DateTime(calendar.SelectedDate.Value.Year, calendar.SelectedDate.Value.Month, 1);
+            var dateTimeNextMonth = new DateTime(calendar.SelectedDate.Value.Year, calendar.SelectedDate.Value.Month + 1, 1);
+
+            var filterByMonth = Builders<ReceptionEntity>.Filter.Gte(re => re.Time, dateTimeCurrentMonth);
+            var filterByNextMonth = Builders<ReceptionEntity>.Filter.Lte(re => re.Time, dateTimeNextMonth);
+            var filter = Builders<ReceptionEntity>.Filter.And(filterByMonth, filterByNextMonth);
+            var collection = Collection<ReceptionEntity>.List(filter);
+            var listDays = collection.Select(item => item.Date.Day).Distinct().ToList();
+            
+            listDays.ForEach(day =>
+            {
+                var year = calendar.SelectedDate.Value.Year;
+                var month = calendar.SelectedDate.Value.Month;
+                var date = new DateTime(year, month, day);
+                calendar.BlackoutDates.Add(new CalendarDateRange(date));
+            });
+        }
+
     }
 }

@@ -15,6 +15,7 @@ using DB = Meddoc.App.Helper;
 using Meddoc.App.Entity;
 using Meddoc.App.Components;
 using System.Collections.ObjectModel;
+using MongoDB.Driver;
 
 namespace Meddoc.App.Forms
 {
@@ -40,15 +41,21 @@ namespace Meddoc.App.Forms
             this.Table.ItemsSource = collection;
             this.main = main;
             DataContext = this;
-        }
+        }  
 
         ObservableCollection<PatientEntity> LoadPatients()
         {
             ObservableCollection<PatientEntity> ret = new ObservableCollection<PatientEntity>();
 
-            var list = DB.Collection<PatientEntity>.List(new BsonDocument());
-            foreach (var item in list)
-                ret.Add(item);
+            var awaiter = DB.Collection<PatientEntity>.ListAsync(new BsonDocument()).GetAwaiter();
+            awaiter.OnCompleted(() =>
+            {
+                var list = awaiter.GetResult().ToList();
+                foreach (var item in list)
+                    ret.Add(item);
+
+                Loader.Visibility = Visibility.Hidden;
+            });
 
             return ret;
         }

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
       xmlns:local="clr-namespace:Meddoc.App.Helper"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -16,8 +17,7 @@
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="26"/>
-            <Setter Property="FontFamily" Value="Raleway Thin"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Raleway SemiBold"/>
         </Style>
         <Style x:Key="ElementStyle" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -49,6 +49,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Margin="20">
             <TextBlock Text="Мои пациенты" FontSize="40px" FontWeight="Bold" FontFamily="/Fonts/#Raleway"/>
+            <fa:ImageAwesome x:Name="Loader" Icon="Refresh" Width="20" Spin="True" SpinDuration="2" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         </Grid>
         <Grid Grid.Row="1" Margin="20">
             <Border BorderThickness="2" CornerRadius="10">
@@ -56,25 +57,13 @@
                     <SolidColorBrush Color="Black" Opacity="0.15"></SolidColorBrush>
                 </Border.BorderBrush>
                 <StackPanel Margin="10px">
-                    <DataGrid x:Name="Table" ItemsSource="{Binding collection}"
-                              CanUserAddRows="False"
-                          Margin="10" 
-                          BorderThickness="0" 
-                          GridLinesVisibility="None" 
-                          ColumnHeaderHeight="80"
-                          HeadersVisibility="Column"
-                              AutoGenerateColumns="False"
-                          >
+                    <DataGrid x:Name="Table" ItemsSource="{Binding collection}" CanUserAddRows="False" Margin="10"  BorderThickness="0"  GridLinesVisibility="None"  ColumnHeaderHeight="80" HeadersVisibility="Column" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Width="2*" 
-                                                FontFamily="Raleway Black"
-                                                FontWeight="SemiBold"
-                                                Foreground="#1D1D1D"
-                                            Header="Ф.И.О" 
-                                            HeaderStyle="{StaticResource HeaderStyle}" 
-                                            CellStyle="{StaticResource CellStyle}"
-                                            ElementStyle="{StaticResource ElementStyleFirst}"
-                                            >
+                            <DataGridTextColumn Width="2*" FontFamily="Raleway Black" FontWeight="SemiBold" Foreground="#1D1D1D" Header="Ф.И.О" 
+                                                HeaderStyle="{StaticResource HeaderStyle}" 
+                                                CellStyle="{StaticResource CellStyle}"
+                                                ElementStyle="{StaticResource ElementStyleFirst}"
+                                                >
                                 <DataGridTextColumn.Binding>
                                     <MultiBinding Converter="{StaticResource DataGridFIOConverter}">
                                         <Binding Path="LastName"/>
@@ -85,7 +74,7 @@
                             </DataGridTextColumn>
                             <DataGridTextColumn 
                             Header="Диагноз"
-                            FontFamily="Raleway"
+                            FontFamily="/Fonts/#Raleway SemiBold"
                             FontWeight="SemiBold"  
                             Width="1*" 
                             Foreground="#1D1D1D"
@@ -108,10 +97,10 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Width="40" Height="40" Margin="0,0,10,0" Background="#1675E4" Click="Button_Click">
+                                            <Button Width="40" Height="40" Margin="0,0,10,0" Background="#1675E4" Click="Button_Click" BorderThickness="0">
                                                 <Image Margin="5" Source="/Assets/Vector3.png"/>
                                             </Button>
-                                            <Button Width="40" Height="40" Background="#E82833" Click="Button_Click_1">
+                                            <Button Width="40" Height="40" Background="#E82833" Click="Button_Click_1" BorderThickness="0">
                                                 <Image Margin="5"  Source="/Assets/delete.png"/>
                                             </Button>
                                         </StackPanel>
@@ -125,6 +114,7 @@
         </Grid>
         <Grid Grid.Row="2" Margin="15,0">
             <Button VerticalAlignment="Bottom" 
+                    BorderThickness="0"
                     Background="#1675E4" 
                     Foreground="White" 
                     FontSize="26"

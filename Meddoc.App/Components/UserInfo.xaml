@@ -19,7 +19,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" >
-                <Image Width="400" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,120,0,120" Height="310" Source="/Assets/Ellipse 1.png" x:Name="Logo">
+                <Image Width="400" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,120,0,120" Height="310" x:Name="Logo">
                      
                 </Image>
             </Grid>
@@ -52,7 +52,7 @@
                                 </Button.Resources>
                             </Button>
                         </Grid>
-                        <TextBlock x:Name="Name" FontSize="46" Text="Николаенко Николай Николаевич" FontFamily="/Fonts/#Raleway Bold"/>
+                        <TextBlock x:Name="Name" FontSize="46" Text="Не указано" FontFamily="/Fonts/#Raleway Bold"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>

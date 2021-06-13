@@ -5,20 +5,20 @@ using Meddoc.App.Entity;
 using MongoDB.Bson;
 using Meddoc.App.Exceptions;
 using Encryption = BCrypt.Net.BCrypt;
+using System.Threading.Tasks;
 
 namespace Meddoc.App.Helper
 {
     public class Users
     {
-        public static User Login(string login, string password)
+        public static async Task<User> Login(string login, string password)
         {
             User user = null;
 
             try
             {
-                user = Collection<User>.Load(new BsonDocument {
-                {"Login",login},
-                });
+                var document = new BsonDocument("Login", login);
+                user = await Collection<User>.Load(document);
             }
             catch (DatabaseException e)
             {
@@ -29,7 +29,7 @@ namespace Meddoc.App.Helper
                 _ = e.Message;
             }
 
-            if(user == null)
+            if (user == null)
             {
                 throw AuthenticationException.WrongUser();
             }

@@ -26,7 +26,7 @@ namespace Meddoc.App
             if (objectId != null)
             {
                 var document = new BsonDocument("_id", objectId);
-                patientNote = Collection<PatientNote>.Load(document);
+                patientNote = Collection<PatientNote>.Load(document).GetAwaiter().GetResult();
             }
             InitializeComponent();
             this.NoteDate.Text = patientNote.dateCreate.ToString("dd.MM.yyyy", CultureInfo.CurrentCulture);
@@ -46,7 +46,7 @@ namespace Meddoc.App
                 if (noteOrPatientNote != null)
                 {
                     var document = new BsonDocument("id", ((Note)noteOrPatientNote).Id);
-                    note = Collection<Note>.Load(document);
+                    note = Collection<Note>.Load(document).GetAwaiter().GetResult();
                     this.NoteDate.Text = note.dateCreate.ToString("HH:mm", CultureInfo.CurrentCulture);
                     this.NoteText.Text = note.Text;
 
@@ -59,7 +59,7 @@ namespace Meddoc.App
                 if (noteOrPatientNote != null)
                 {
                     var document = new BsonDocument("id", ((PatientNote)noteOrPatientNote).Id);
-                    patientNote = Collection<PatientNote>.Load(document);
+                    patientNote = Collection<PatientNote>.Load(document).GetAwaiter().GetResult();
                 }
                 else patientNote = new PatientNote();
             }

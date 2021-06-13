@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Meddoc.App.Entity;
 using Meddoc.App.Helper;
 using System.Globalization;
+using MongoDB.Bson;
 
 namespace Meddoc.App.Forms
 {
@@ -35,12 +36,20 @@ namespace Meddoc.App.Forms
             this.main = main;
             User user = Configuration.currentUser;
             this.Work.Text = user.Work;
-            this.DateBirth.Text = user.DateBirth.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture);
-            this.Name.Text = user.LastName + " " + user.FirstName + " " + user.MiddleName;
+
+            if (user.DateBirth != default)
+                this.DateBirth.Text = user.DateBirth.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture);
+
+            if (user.LastName != null && user.FirstName != null)
+                this.Name.Text = user.LastName + " " + user.FirstName + " " + user.MiddleName;
+
+            else this.Name.Text = "Не указано";
             if (user.ImageBase64 != null)
                 this.Logo.Source = Images.Load(user.ImageBase64);
 
-            this.Count.Text = Collection<PatientEntity>.Count().ToString();
+            var document = new BsonDocument("userId", Configuration.currentUser.Id);
+
+            this.Count.Text = Collection<PatientEntity>.Count(document).ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
