@@ -41,8 +41,8 @@
                         <StackPanel>
                             <components:CustomTextField FontSize="26" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" x:Name="Login" PlaceHolder="Придумайте логин..." Height="96" Margin="0,0,0,40"/>
                             <components:CustomTextField FontSize="26" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" x:Name="Email" PlaceHolder="Ваша почта..."  Height="96" Margin="0,0,0,40" />
-                            <components:CustomTextField FontSize="26" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" x:Name="Password" PlaceHolder="Ваш пароль..." Height="96"  Margin="0,0,0,40" />
-                            <components:CustomTextField FontSize="26" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" x:Name="PasswordConfirm" PlaceHolder="Подтвердите пароль..." Height="96" Margin="0,0,0,10" />
+                            <components:CustomTextField FontSize="26" FontFamily="/Fonts/Password.ttf #Password Dots" x:Name="Password" PlaceHolder="Ваш пароль..." Height="96"  Margin="0,0,0,40" />
+                            <components:CustomTextField FontSize="26" FontFamily="/Fonts/Password.ttf #Password Dots" x:Name="PasswordConfirm" PlaceHolder="Подтвердите пароль..." Height="96" Margin="0,0,0,10" />
                             <TextBlock FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" PreviewMouseDown="TextBlock_PreviewMouseDown" TextDecorations="Underline" Foreground="White" Text="Уже есть аккаунт" FontSize="24" />
                         </StackPanel>
 

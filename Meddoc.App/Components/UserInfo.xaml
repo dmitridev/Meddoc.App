@@ -72,8 +72,8 @@
                                            HorizontalAlignment="Left"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1">
-                                <TextBlock x:Name="Work" FontFamily="/Fonts/#Raleway SemiBold" Text="Заведующий отделом терапии" FontSize="18"/>
-                                <TextBlock x:Name="DateBirth" FontFamily="/Fonts/#Raleway SemiBold" Text="22.05.1978" FontSize="18px"/>
+                                <TextBlock x:Name="Work" FontFamily="/Fonts/#Raleway SemiBold" Text="Не указано" FontSize="18"/>
+                                <TextBlock x:Name="DateBirth" FontFamily="/Fonts/#Raleway SemiBold" Text="Не указано" FontSize="18px"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
