@@ -72,8 +72,8 @@ namespace Meddoc.App
             DateTime selectedDateNewDate = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day + 1);
             this.Receptions.Children.Clear();
 
-            var filterByNow = Builders<ReceptionEntity>.Filter.Gte(r => r.Time, selectedDate);
-            var filterByDayPlusOne = Builders<ReceptionEntity>.Filter.Lte(r => r.Time, selectedDateNewDate);
+            var filterByNow = Builders<ReceptionEntity>.Filter.Gte(r => r.Date, selectedDate);
+            var filterByDayPlusOne = Builders<ReceptionEntity>.Filter.Lte(r => r.Date, selectedDateNewDate);
             var filterByUserId = Builders<ReceptionEntity>.Filter.Eq(r => r.userId, Configuration.currentUser.Id);
             var filter = Builders<ReceptionEntity>.Filter.And(filterByNow, filterByDayPlusOne, filterByUserId);
             var collection = Collection<ReceptionEntity>.List(filter);
