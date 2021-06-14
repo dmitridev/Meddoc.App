@@ -92,7 +92,7 @@ namespace Meddoc.App
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            this.MainFrame.Content = new Patient();
+            this.MainFrame.Content = new Patient(this, new PatientEntity());
         }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
@@ -128,20 +128,14 @@ namespace Meddoc.App
 
         public async Task GetNotes()
         {
-            try
-            {
-                this.importantArrow.Visibility = Visibility.Hidden;
-                this.Loader.Visibility = Visibility.Visible;
+            this.importantArrow.Visibility = Visibility.Hidden;
+            this.Loader.Visibility = Visibility.Visible;
 
-                var list = await DB.Collection<Note>.ListAsync(new BsonDocument());
-                this.Notes.Children.Clear();
-                list.ToList().ForEach(note => this.Notes.Children.Add(new Memo(note)));
-                this.Loader.Visibility = Visibility.Hidden;
-                this.importantArrow.Visibility = Visibility.Visible;
-            }catch(Exception exception)
-            {
-
-            }
+            var list = await DB.Collection<Note>.ListAsync(new BsonDocument());
+            this.Notes.Children.Clear();
+            list.ToList().ForEach(note => this.Notes.Children.Add(new Memo(note)));
+            this.Loader.Visibility = Visibility.Hidden;
+            this.importantArrow.Visibility = Visibility.Visible;
         }
     }
 }

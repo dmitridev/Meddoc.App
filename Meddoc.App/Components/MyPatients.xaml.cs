@@ -62,7 +62,7 @@ namespace Meddoc.App.Forms
 
         public void Add_Patient(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Patient());
+            this.NavigationService.Navigate(new Patient(main,new PatientEntity()));
         }
 
         private void DataGridCell_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

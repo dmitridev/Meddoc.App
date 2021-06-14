@@ -15,19 +15,10 @@ namespace Meddoc.App.Helper
         {
             User user = null;
 
-            try
-            {
-                var document = new BsonDocument("Login", login);
-                user = await Collection<User>.Load(document);
-            }
-            catch (DatabaseException e)
-            {
-                _ = e.Message;
-            }
-            catch (Exception e)
-            {
-                _ = e.Message;
-            }
+
+            var document = new BsonDocument("Login", login);
+            user = await Collection<User>.Load(document);
+
 
             if (user == null)
             {
@@ -55,18 +46,8 @@ namespace Meddoc.App.Helper
                 Password = Encryption.HashPassword(password),
             };
 
-            try
-            {
-                Collection<User>.Save(user);
-            }
-            catch (DatabaseException e)
-            {
-                _ = e.Message;
-            }
-            catch (Exception e)
-            {
-                _ = e.Message;
-            }
+
+            Collection<User>.Save(user);
         }
     }
 }

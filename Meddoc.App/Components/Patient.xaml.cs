@@ -16,6 +16,7 @@ using MongoDB.Bson;
 using Microsoft.Win32;
 using System.IO;
 using Meddoc.App.Forms;
+using System.Globalization;
 
 namespace Meddoc.App
 {
@@ -41,7 +42,8 @@ namespace Meddoc.App
             this.FirstName.Textbox.Text = entity.Name;
             this.LastName.Textbox.Text = entity.LastName;
             this.MiddleName.Textbox.Text = entity.MiddleName;
-            this.DateBirth.Textbox.Text = entity.DateBirth.ToString("dd.MM.yyyy");
+            if (this.entity.DateBirth != default)
+                this.DateBirth.Textbox.Text = entity.DateBirth.ToString("dd.MM.yyyy");
             this.History.Textbox.Text = entity.History;
             this.Diagnoz.Textbox.Text = entity.Diagnoz;
             if (entity.AvatarBase64 != null)
@@ -63,7 +65,7 @@ namespace Meddoc.App
 
         public void Button_Add(object sender, RoutedEventArgs e)
         {
-            ObjectId objectId = this.entity.Id != null ? this.entity.Id : ObjectId.GenerateNewId();
+            ObjectId objectId = this.entity.Id != default ? this.entity.Id : ObjectId.GenerateNewId();
 
             PatientEntity toSave = new PatientEntity
             {
@@ -71,11 +73,15 @@ namespace Meddoc.App
                 Name = this.FirstName.Textbox.Text,
                 MiddleName = this.MiddleName.Textbox.Text,
                 LastName = this.LastName.Textbox.Text,
-                DateBirth = DateTime.Parse(this.DateBirth.Textbox.Text),
+                DateBirth = DateTime.Parse(this.DateBirth.Textbox.Text, CultureInfo.CurrentCulture),
                 History = this.History.Textbox.Text,
-                AvatarBase64 = this.entity.AvatarBase64,
+
                 Diagnoz = this.Diagnoz.Textbox.Text
             };
+            if (entity != null && entity.AvatarBase64 != null)
+            {
+                toSave.AvatarBase64 = entity.AvatarBase64;
+            }
             if (addToReception)
             {
                 Collection<PatientEntity>.Save(toSave);
@@ -110,7 +116,7 @@ namespace Meddoc.App
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            main.MainFrame.Content = new PatientsTable(main, entity);
+            main.MainFrame.Content = new MyPatients(main);
         }
     }
 }

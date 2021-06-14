@@ -61,6 +61,15 @@ namespace Meddoc.App.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на mongodb+srv://dmitriy:Yalomalsteklo1995@cluster0.zh5fi.mongodb.net/meddoc.
+        /// </summary>
+        public static string ConnectionString {
+            get {
+                return ResourceManager.GetString("ConnectionString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
         public static byte[] Raleway_Black {
