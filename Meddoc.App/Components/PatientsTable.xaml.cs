@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using Meddoc.App.Entity;
 using Meddoc.App.Helper;
 using System.Globalization;
+using Meddoc.App.Components;
 
 namespace Meddoc.App.Forms
 {
@@ -36,7 +37,7 @@ namespace Meddoc.App.Forms
             if (entity.AvatarBase64 != null)
                 this.Avatar.Source = Images.Load(this.entity.AvatarBase64);
 
-            var collection = Collection<PatientNote>.List(new MongoDB.Bson.BsonDocument("PatientId", patientEntity.Id));
+            var collection = Collection<Entity.PatientNote>.List(new MongoDB.Bson.BsonDocument("PatientId", patientEntity.Id));
             foreach (var item in collection)
             {
                 this.patientNotes.Children.Add(new Components.PatientNote(main, item, entity));
@@ -58,6 +59,16 @@ namespace Meddoc.App.Forms
         void Button_Back(object sender, RoutedEventArgs e)
         {
             main.MainFrame.Content = new MyPatients(main);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            DeleteObj deleteObj = new DeleteObj();
+            if (deleteObj.ShowDialog().Value)
+            {
+                Collection<PatientEntity>.Del(entity);
+                main.MainFrame.Content = new MyPatients(main);
+            }
         }
     }
 }

@@ -25,7 +25,6 @@ namespace Meddoc.App.Helper
         public static void Save(T @object)
         {
             MongoClient client = new MongoClient(Configuration.Connection);
-            @object.userId = Configuration.currentUser.Id;
             var db = client.GetDatabase("meddoc");
             if (Configuration.currentUser != null)
                 @object.userId = Configuration.currentUser.Id;

@@ -31,7 +31,7 @@
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height=".8*"/>
-                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2.1*"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
@@ -48,13 +48,16 @@
 
                     </Grid>
                     <Grid Grid.Row="2">
-                        <Button Height="96" Content="Зарегистрироваться" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Click="Button_Register" FontSize="30px" FontWeight="Bold" Background="White" Foreground="#1675E4">
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="11"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
+                        <StackPanel>
+                            <Button Margin="0,50,0,0" Height="96" Content="Зарегистрироваться" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Click="Button_Register" FontSize="30px" FontWeight="Bold" Background="White" Foreground="#1675E4">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="11"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <TextBlock x:Name="Error" FontSize="18px" Foreground="#e82833" HorizontalAlignment="Center" />
+                        </StackPanel>
                     </Grid>
                 </Grid>
             </Grid>

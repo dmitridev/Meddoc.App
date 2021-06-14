@@ -33,23 +33,9 @@ namespace Meddoc.App.Components
             this.Margin = new Thickness(0, 0, 5, 0);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NoteWindow window = new NoteWindow(main, Dto.NoteType.PatientNoteWindow, note, patientEntity.Id);
-            if (window.ShowDialog().Value == true)
-            {
-                main.MainFrame.Content = new PatientsTable(main, patientEntity);
-            }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            NoteWindow noteWindow = new NoteWindow(main, this.note.Id);
+            NoteWindow noteWindow = new NoteWindow(main, note);
             if (noteWindow.ShowDialog().Value)
             {
                 main.MainFrame.Content = new PatientsTable(main, this.patientEntity);

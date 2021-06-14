@@ -15,6 +15,7 @@ using System.IO;
 using Meddoc.App.Helper;
 using Meddoc.App.Entity;
 using System.Globalization;
+using Meddoc.App.Forms;
 
 namespace Meddoc.App.Components
 {
@@ -24,16 +25,20 @@ namespace Meddoc.App.Components
     public partial class EditUser : Page
     {
         byte[] image;
-        public EditUser()
+        Main main;
+        public EditUser(Main main)
         {
+            
             InitializeComponent();
+            this.main = main;
             User user = Configuration.currentUser;
             this.FirstName.Textbox.Text = user.FirstName;
             this.LastName.Textbox.Text = user.LastName;
             this.MiddleName.Textbox.Text = user.MiddleName;
             this.Email.Textbox.Text = user.Email;
             this.Work.Textbox.Text = user.Work;
-            this.DateBirth.Textbox.Text = user.DateBirth.ToString("dd.MM.yyyy", CultureInfo.CurrentCulture);
+            if (user.DateBirth != default)
+                this.DateBirth.Textbox.Text = user.DateBirth.ToString("dd.MM.yyyy", CultureInfo.CurrentCulture);
             if (user.ImageBase64 != null)
                 this.Logo.Source = Images.Load(user.ImageBase64);
         }
@@ -47,8 +52,9 @@ namespace Meddoc.App.Components
                 // this.Logo load image; 
                 this.image = bytes;
                 this.Logo.Source = LoadImage(bytes);
-                this.Logo.Width = 100;
-                this.Logo.Height = 100;
+                this.Logo.Width = 500;
+                this.Logo.Height = 500;
+                this.Logo.Stretch = Stretch.Fill;
                 string base64 = Convert.ToBase64String(bytes);
             }
         }
@@ -79,7 +85,7 @@ namespace Meddoc.App.Components
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            main.MainFrame.Content = new UserInfo(main);   
         }
     }
 }

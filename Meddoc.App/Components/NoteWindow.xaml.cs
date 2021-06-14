@@ -34,6 +34,16 @@ namespace Meddoc.App
             patientId = patientNote.PatientId;
         }
 
+        public NoteWindow(Main main, PatientNote patientNote)
+        {
+            this.main = main;
+            this.patientNote = patientNote;
+            InitializeComponent();
+            this.NoteDate.Text = patientNote.dateCreate.ToString("dd.MM.yyyy", CultureInfo.CurrentCulture);
+            this.NoteText.Text = patientNote.Text;
+            patientId = patientNote.PatientId;
+        }
+
         public NoteWindow(Main main, NoteType type, object noteOrPatientNote, ObjectId patientId)
         {
             if (patientId != null)

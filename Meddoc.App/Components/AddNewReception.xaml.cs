@@ -46,8 +46,15 @@ namespace Meddoc.App
             this.entity = entity;
             this.MainText.Text = "Редактировать приём";
             this.MainButton.Content = "Сохранить";
-            this.Date.Textbox.Text = this.entity.Date.ToString("dd.MM.yyy");
-            this.Time.Textbox.Text = this.entity.Time.ToString("HH:mm");
+            if (this.entity.Date != default)
+            {
+                this.Date.Textbox.Text = this.entity.Date.ToString("dd.MM.yyy");
+            }
+
+            if (this.entity.Time != default)
+            {
+                this.Time.Textbox.Text = this.entity.Time.ToString("HH:mm");
+            }
             this.Description.Textbox.Text = this.entity.Info;
 
             var list = Collection<PatientEntity>.List(new BsonDocument());

@@ -31,16 +31,16 @@ namespace Meddoc.App
             this.main = main;
         }
 
-
-        void CustomTextField_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         void Button_Register(object sender, RoutedEventArgs e)
         {
-            Users.Register(this.Login.Textbox.Text, this.Email.Textbox.Text, this.Password.Textbox.Text, this.PasswordConfirm.Textbox.Text);
-            this.NavigationService.Navigate(new Login());
+            try
+            {
+                Users.Register(this.Login.Textbox.Text, this.Email.Textbox.Text, this.Password.Textbox.Text, this.PasswordConfirm.Textbox.Text);
+                this.NavigationService.Navigate(new Login());
+            }
+            catch (Exception exception) {
+                this.Error.Text = exception.Message;
+            }
         }
 
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)

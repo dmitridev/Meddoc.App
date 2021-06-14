@@ -54,7 +54,7 @@ namespace Meddoc.App.Forms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            main.MainFrame.Content = new EditUser();
+            main.MainFrame.Content = new EditUser(main);
         }
     }
 }

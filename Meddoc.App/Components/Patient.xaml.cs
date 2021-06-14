@@ -15,6 +15,7 @@ using Meddoc.App.Helper;
 using MongoDB.Bson;
 using Microsoft.Win32;
 using System.IO;
+using Meddoc.App.Forms;
 
 namespace Meddoc.App
 {
@@ -62,9 +63,11 @@ namespace Meddoc.App
 
         public void Button_Add(object sender, RoutedEventArgs e)
         {
-            PatientEntity entity = new PatientEntity
+            ObjectId objectId = this.entity.Id != null ? this.entity.Id : ObjectId.GenerateNewId();
+
+            PatientEntity toSave = new PatientEntity
             {
-                Id = ObjectId.GenerateNewId(),
+                Id = objectId,
                 Name = this.FirstName.Textbox.Text,
                 MiddleName = this.MiddleName.Textbox.Text,
                 LastName = this.LastName.Textbox.Text,
@@ -75,12 +78,17 @@ namespace Meddoc.App
             };
             if (addToReception)
             {
-                Collection<PatientEntity>.Save(entity);
+                Collection<PatientEntity>.Save(toSave);
+                entity = toSave;
                 ReceptionEntity receptionEntity = new ReceptionEntity();
                 receptionEntity.PatientEntity = entity.Id;
                 main.MainFrame.Content = new AddNewReception(main, receptionEntity);
             }
-            Collection<PatientEntity>.Save(entity);
+            else
+            {
+                Collection<PatientEntity>.Save(toSave);
+                entity = toSave;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -102,7 +110,7 @@ namespace Meddoc.App
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            main.MainFrame.Content = new PatientsTable(main, entity);
         }
     }
 }

@@ -35,7 +35,7 @@
                         <Button Margin="40px" Click="Button_Click" Width="278" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Foreground="White" FontSize="24px" Content="Редактировать" Background="#1675E4"/>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Button Margin="40px" Width="278" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Foreground="White" FontSize="24px" Content="Удалить" Background="#E82833"/>
+                        <Button Margin="40px" Width="278" FontFamily="/Fonts/Raleway-SemiBold.ttf #Raleway SemiBold" Foreground="White" FontSize="24px" Content="Удалить" Click="Button_Click_2" Background="#E82833"/>
                     </Grid>
                 </Grid>
             </Grid>
